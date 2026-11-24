@@ -1,0 +1,4265 @@
+{
+ "commons": "chanio commons",
+ "version": 1,
+ "status": "published",
+ "built": "2026-11-23",
+ "count": 139,
+ "entries_sha256": "a97a65c3685663ec3085dd06e7dc23a7f7dcfbeff5d21be34dfd04987787ae0e",
+ "entries": [
+  {
+   "id": "c-19a67b797a9d",
+   "claim": "METR: task time horizon doubles about every 7 months",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (TH1.1 keeps ~196 days)",
+   "sources": [
+    {
+     "url": "https://metr.org/blog/2026-01-29-time-horizon-1-1/",
+     "fetched": "2026-11-14"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-14",
+   "history": [
+    {
+     "date": "2026-11-14",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "horizon",
+    "doubles",
+    "every",
+    "months",
+    "metr",
+    "task"
+   ]
+  },
+  {
+   "id": "c-4b09cb98e314",
+   "claim": "Upwork AI video demand +300% in 2025, fastest-growing skill",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (+329%)",
+   "sources": [
+    {
+     "url": "https://investors.upwork.com/news-releases/news-release-details/upworks-demand-skills-2026-demand-top-ai-skills-more-doubles-ai",
+     "fetched": "2026-11-14"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-14",
+   "history": [
+    {
+     "date": "2026-11-14",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "upwork",
+    "video",
+    "demand",
+    "fastest",
+    "growing",
+    "skill",
+    "fastest-growing"
+   ]
+  },
+  {
+   "id": "c-9aa63c03069c",
+   "claim": "US labor share 54.1% in Q1 2026, lowest since 1947",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (BLS nonfarm business)",
+   "sources": [
+    {
+     "url": "https://www.dol.gov/newsroom/economicdata/prod2_05072026.pdf",
+     "fetched": "2026-11-14"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-14",
+   "history": [
+    {
+     "date": "2026-11-14",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "labor",
+    "share",
+    "lowest",
+    "since"
+   ]
+  },
+  {
+   "id": "c-d2ee079b7e9a",
+   "claim": "ages 22-25 in AI-exposed jobs 19% below trend (15% at July 2025 vintage)",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED Stanford Canaries rev. Aug 12 2026: ages 22-25 in AI-exposed jobs 19% below trend (15% at July 2025 vintage); via fewer hires, not layoffs; experienced workers no gap; declines where AI automates, flat/rising where it complements; codified-knowledge jobs hit. Descriptive, not causal.",
+   "sources": [
+    {
+     "url": "https://digitaleconomy.stanford.edu/news/canariesaug26/",
+     "fetched": "2026-11-14"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-14",
+   "history": [
+    {
+     "date": "2026-11-14",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "exposed",
+    "below",
+    "trend",
+    "vintage",
+    "ages",
+    "22-25",
+    "ai-exposed",
+    "jobs"
+   ]
+  },
+  {
+   "id": "c-d441acb097b0",
+   "claim": "DOE: data centers 4.4% of US electricity in 2023",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers",
+     "fetched": "2026-11-14"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-14",
+   "history": [
+    {
+     "date": "2026-11-14",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "centers",
+    "electricity",
+    "doe"
+   ]
+  },
+  {
+   "id": "c-0cc967486f99",
+   "claim": "Plain mlx_lm finished only 23 to 31 of 100 agent requests on the 27B model (M5 Pro, 64 GB)",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (30 / 31 / 23 at 1 / 2 / 4 at once) — SiliconBench",
+   "sources": [
+    {
+     "url": "https://arxiv.org/abs/2609.19169",
+     "fetched": "2026-11-13"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-13",
+   "history": [
+    {
+     "date": "2026-11-13",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "plain",
+    "finished",
+    "agent",
+    "requests",
+    "model",
+    "mlx",
+    "27b",
+    "pro"
+   ]
+  },
+  {
+   "id": "c-8f9418008e08",
+   "claim": "RDMA over Thunderbolt needs macOS 26.2, Apple silicon, Thunderbolt 5",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Apple TN3205",
+   "sources": [
+    {
+     "url": "https://developer.apple.com/documentation/technotes/tn3205-low-latency-communication-with-rdma-over-thunderbolt",
+     "fetched": "2026-11-13"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-13",
+   "history": [
+    {
+     "date": "2026-11-13",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "thunderbolt",
+    "needs",
+    "macos",
+    "apple",
+    "silicon",
+    "rdma"
+   ]
+  },
+  {
+   "id": "c-cb9c0a02c7a7",
+   "claim": "av/harbor is a different, older open-source project, about 3,300 stars",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (3.3k)",
+   "sources": [
+    {
+     "url": "https://github.com/av/harbor",
+     "fetched": "2026-11-13"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-13",
+   "history": [
+    {
+     "date": "2026-11-13",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "harbor",
+    "different",
+    "older",
+    "project",
+    "stars",
+    "open-source"
+   ]
+  },
+  {
+   "id": "c-dfefd80f2193",
+   "claim": "LM Studio: four chats at once went from about 15 to 33.97 tokens/s total (2.2x) on an M3 Max",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED as LM Studio's own number; not reproduced by anyone else",
+   "sources": [
+    {
+     "url": "https://lmstudio.ai/blog/mlx-engine-agentic-workloads",
+     "fetched": "2026-11-13"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-13",
+   "history": [
+    {
+     "date": "2026-11-13",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "studio",
+    "chats",
+    "tokens",
+    "total",
+    "max"
+   ]
+  },
+  {
+   "id": "c-ffedc252da8f",
+   "claim": "Qwen 3.8 27B on one M5 Ultra: 19.69 tokens/s decode",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Apple ML Research, Table 3",
+   "sources": [
+    {
+     "url": "https://machinelearning.apple.com/research/mlx-distributed-inference",
+     "fetched": "2026-11-13"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-13",
+   "history": [
+    {
+     "date": "2026-11-13",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "ultra",
+    "tokens",
+    "decode",
+    "qwen",
+    "27b"
+   ]
+  },
+  {
+   "id": "c-009ed15c06a5",
+   "claim": "Impact has a Preferred Provider program and a \"bill publishing\" step that notifies both sides before funds move",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://www.impacthealthsharing.com/knowledge/how-can-i-become-a-preferred-partner",
+     "fetched": "2026-11-09"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-09",
+   "history": [
+    {
+     "date": "2026-11-09",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "impact",
+    "preferred",
+    "provider",
+    "program",
+    "publishing",
+    "notifies",
+    "sides",
+    "funds"
+   ]
+  },
+  {
+   "id": "c-0a406e4abf12",
+   "claim": "Hudson Valley Current Inc is a 501(c)(3)",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED as its own footer; not checked against IRS records",
+   "sources": [
+    {
+     "url": "https://hudsonvalleycurrent.org/join-us/",
+     "fetched": "2026-11-09"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-09",
+   "history": [
+    {
+     "date": "2026-11-09",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "hudson",
+    "valley",
+    "current",
+    "inc"
+   ]
+  },
+  {
+   "id": "c-2ec5f697b6d5",
+   "claim": "Trilium keeps every note in ONE SQLite file, ~/Library/Application Support/trilium-data/document.db, not as .md files.",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED and the part that matters: Trilium keeps every note in ONE SQLite file, ~/Library/Application Support/trilium-data/document.db, not as.md files.",
+   "sources": [
+    {
+     "url": "https://docs.triliumnotes.org/user-guide/setup/data-directory",
+     "fetched": "2026-11-09"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-09",
+   "history": [
+    {
+     "date": "2026-11-09",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "trilium",
+    "keeps",
+    "every",
+    "sqlite",
+    "library",
+    "application",
+    "support",
+    "document",
+    "files",
+    "trilium-data"
+   ]
+  },
+  {
+   "id": "c-305b8b87a031",
+   "claim": "Currents \"keep money local\"; spent at \"hundreds of participating businesses\"",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED as the design: Currents are accepted only at member businesses. \"Hundreds\" is its own count",
+   "sources": [
+    {
+     "url": "https://hudsonvalleycurrent.org/faq",
+     "fetched": "2026-11-09"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-09",
+   "history": [
+    {
+     "date": "2026-11-09",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "currents",
+    "money",
+    "local",
+    "spent",
+    "hundreds",
+    "participating",
+    "businesses"
+   ]
+  },
+  {
+   "id": "c-b340cdf898cb",
+   "claim": "Trilium is open source, AGPL-3.0, about 38.8k GitHub stars.",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Trilium is open source, AGPL-3.0, about 38.8k GitHub stars.",
+   "sources": [
+    {
+     "url": "https://github.com/TriliumNext/Trilium/",
+     "fetched": "2026-11-09"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-09",
+   "history": [
+    {
+     "date": "2026-11-09",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "trilium",
+    "github",
+    "stars",
+    "agpl-3"
+   ]
+  },
+  {
+   "id": "c-de6145064e39",
+   "claim": "The Current apologized in 2020 for a rushed move to new software",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://hudsonvalleycurrent.org/an-apology-is-in-order/",
+     "fetched": "2026-11-09"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-09",
+   "history": [
+    {
+     "date": "2026-11-09",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "current",
+    "apologized",
+    "rushed",
+    "software"
+   ]
+  },
+  {
+   "id": "c-f0a3808fee2e",
+   "claim": "In 2020 the Current extended larger lines of trust to members who lost work, and supplied ~300 meals a week to Ulster County",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED as its own posts (April 2020)",
+   "sources": [
+    {
+     "url": "https://hudsonvalleycurrent.org/trust-lines-hearts-of-gold-and-the-livelihood-news-hour/",
+     "fetched": "2026-11-09"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-09",
+   "history": [
+    {
+     "date": "2026-11-09",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "current",
+    "extended",
+    "larger",
+    "lines",
+    "trust",
+    "members",
+    "supplied",
+    "meals",
+    "ulster",
+    "county"
+   ]
+  },
+  {
+   "id": "c-fc17673c1fc4",
+   "claim": "TrustUp hardware includes Latches (\"a code lock for a shed, gate or cabinet\") and Signals (a light that shows need or availability)",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://trustup.org/lockers",
+     "fetched": "2026-11-09"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-09",
+   "history": [
+    {
+     "date": "2026-11-09",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "trustup",
+    "hardware",
+    "includes",
+    "latches",
+    "cabinet",
+    "signals",
+    "light",
+    "shows",
+    "availability",
+    "shed",
+    "gate"
+   ]
+  },
+  {
+   "id": "c-9dfba7aed232",
+   "claim": "PONTAAI (Relm Insurance) is an excess Difference-in-Conditions (DIC) / AI Wrap insurance framework designed to fill AI exclusions across CGL, MPL, cyber, and tech E&O policies",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://relminsurance.com",
+     "fetched": "2026-11-06"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-06",
+   "history": [
+    {
+     "date": "2026-11-06",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "pontaai",
+    "insurance",
+    "excess",
+    "difference",
+    "conditions",
+    "framework",
+    "designed",
+    "exclusions",
+    "across",
+    "cyber",
+    "relm",
+    "difference-in-conditions"
+   ]
+  },
+  {
+   "id": "c-0220a291cb76",
+   "claim": "HBM4 has a 2048-bit interface and 4-hi stacks",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The 13 Gbps HBM4E speed is a vendor figure; the JEDEC base is 8 Gbps",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/High_Bandwidth_Memory",
+     "fetched": "2026-11-04"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-04",
+   "history": [
+    {
+     "date": "2026-11-04",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "interface",
+    "stacks",
+    "hbm4",
+    "2048-bit",
+    "4-hi"
+   ]
+  },
+  {
+   "id": "c-0ac8274a7b2a",
+   "claim": "Core Advanced needs an M3 or newer with 12 GB+; it takes up to 14 GB of disk, and other Macs get up to 8 GB",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Some Macs report 30 GB+ in total. — MacRumors 2026-09-23, MacStories",
+   "sources": [
+    {
+     "url": "https://www.macrumors.com/2026/09/23/apple-intelligence-30gb-some-macs-macos-27/",
+     "fetched": "2026-11-04"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-04",
+   "history": [
+    {
+     "date": "2026-11-04",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "advanced",
+    "needs",
+    "newer",
+    "takes",
+    "other",
+    "core",
+    "disk",
+    "macs"
+   ]
+  },
+  {
+   "id": "c-6ee217e7aec4",
+   "claim": "Continuation vehicles were 14% of PE exit value in 1H 2026, up from 5% in 2020 (Jefferies)",
+   "lang": "en",
+   "verdict": "PARTLY",
+   "finding": "Every source I found ties 14% to full-year 2025, against 5% in 2021. The 1H 2026 figure is in a chart in Jefferies' July 2026 PDF that I could not read. — Jefferies July 2026, Kadenwood",
+   "sources": [
+    {
+     "url": "https://www.jefferies.com/wp-content/uploads/sites/4/2026/07/Jefferies-Global-Secondary-Market-Review-July-2026.pdf",
+     "fetched": "2026-11-04"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-04",
+   "history": [
+    {
+     "date": "2026-11-04",
+     "verdict": "PARTLY",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "continuation",
+    "vehicles",
+    "value",
+    "jefferies",
+    "exit"
+   ]
+  },
+  {
+   "id": "c-70054fe2eff2",
+   "claim": "SemiAnalysis GDPx: 206 tasks, 11 domains, 14 partners; Opus 5.5 at 12%, Gemini 4 Carbon 10.9%, GPT-6 Astra 9.6%",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED, released 2026-11-02 — SemiAnalysis, Emergent",
+   "sources": [
+    {
+     "url": "https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities",
+     "fetched": "2026-11-04"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-04",
+   "history": [
+    {
+     "date": "2026-11-04",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "semianalysis",
+    "tasks",
+    "domains",
+    "partners",
+    "gemini",
+    "carbon",
+    "astra",
+    "gdpx",
+    "opus",
+    "gpt-6"
+   ]
+  },
+  {
+   "id": "c-a06d4694f0ae",
+   "claim": "GLM-5: 744B total / 40B active, uses DSA",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://lambda.ai/inference-models/zai-org/glm-5",
+     "fetched": "2026-11-04"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-04",
+   "history": [
+    {
+     "date": "2026-11-04",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "total",
+    "active",
+    "glm-5",
+    "744b",
+    "40b",
+    "dsa"
+   ]
+  },
+  {
+   "id": "c-da82c98c71bf",
+   "claim": "AFM 3 has two on-device models: Core (3B) and Core Advanced (20B sparse, 1–4B active per request)",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Apple ML research",
+   "sources": [
+    {
+     "url": "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models",
+     "fetched": "2026-11-04"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-04",
+   "history": [
+    {
+     "date": "2026-11-04",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "device",
+    "models",
+    "advanced",
+    "sparse",
+    "active",
+    "request",
+    "afm",
+    "on-device",
+    "core",
+    "20b"
+   ]
+  },
+  {
+   "id": "c-83e04297b588",
+   "claim": "UK EOTs since 2014; 1,700 companies by July 2024",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "1,756 by July 2024 (EFES via NCEO). Note: the 2025 UK Budget cut EOT relief from 100% to 50%",
+   "sources": [
+    {
+     "url": "https://www.nceo.org/employee-ownership-blog/six-percent-uk-business-transfers-are-now-employee-ownership-trusts",
+     "fetched": "2026-11-03"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-11-03",
+   "history": [
+    {
+     "date": "2026-11-03",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "since",
+    "companies",
+    "eots"
+   ]
+  },
+  {
+   "id": "c-a88593da040d",
+   "claim": "Lending Club \"talked to the FTC\" and Prosper was \"put out of business by the FTC\"",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "WRONG agency. It was the SEC: Lending Club registered voluntarily (quiet period April–Oct 2008); the SEC ordered Prosper to cease and desist (Release 33-8984, Nov 2008); Prosper reopened, registered, in July 2009. The lesson stands.",
+   "sources": [
+    {
+     "url": "https://www.sec.gov/files/litigation/admin/2008/33-8984.pdf",
+     "fetched": "2026-10-28"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-28",
+   "history": [
+    {
+     "date": "2026-10-28",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "lending",
+    "talked",
+    "prosper",
+    "business",
+    "ftc"
+   ]
+  },
+  {
+   "id": "c-2712e2c1e466",
+   "claim": "\"GPT-6 Astra\" is OpenAI's top computer-use model in Codex",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Released 9/3/26. — OpenAI",
+   "sources": [
+    {
+     "url": "https://openai.com/index/gpt-6-astra/",
+     "fetched": "2026-10-27"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-27",
+   "history": [
+    {
+     "date": "2026-10-27",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "astra",
+    "openai",
+    "computer",
+    "model",
+    "codex",
+    "gpt-6",
+    "computer-use"
+   ]
+  },
+  {
+   "id": "c-d2f03b30cf42",
+   "claim": "YouTube is the most-cited site in Google AI Overviews",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED for AI Overviews (about 21–23% share). Across all AI search tools, Reddit is first and YouTube second. About 94% of YouTube citations go to long-form video, not Shorts. — Ahrefs, Sept 2026, Search Engine Journal",
+   "sources": [
+    {
+     "url": "https://ahrefs.com/blog/most-cited-domains-ai-overviews/",
+     "fetched": "2026-10-27"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-27",
+   "history": [
+    {
+     "date": "2026-10-27",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "youtube",
+    "cited",
+    "google",
+    "overviews",
+    "most-cited"
+   ]
+  },
+  {
+   "id": "c-366b1903f3ff",
+   "claim": "Rebuilding Together operates across 109 local affiliates/chapters nationwide alongside Habitat for Humanity home repair/modification programs",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://rebuildingtogether.org/find-your-local-affiliate",
+     "fetched": "2026-10-25"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-25",
+   "history": [
+    {
+     "date": "2026-10-25",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "rebuilding",
+    "together",
+    "operates",
+    "across",
+    "local",
+    "affiliates",
+    "chapters",
+    "nationwide",
+    "alongside",
+    "habitat",
+    "humanity",
+    "repair"
+   ]
+  },
+  {
+   "id": "c-1cfbc09350e9",
+   "claim": "EFF's Privacy Badger launched for Safari on macOS (Safari 26.5+) in October 2026; Block unveiled Dessa, a full-duplex speech-to-speech voice model trained from scratch on raw audio conversation",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://www.eff.org",
+     "fetched": "2026-10-24"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-24",
+   "history": [
+    {
+     "date": "2026-10-24",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "privacy",
+    "badger",
+    "launched",
+    "safari",
+    "macos",
+    "october",
+    "block",
+    "unveiled",
+    "dessa",
+    "duplex",
+    "eff",
+    "full-duplex"
+   ]
+  },
+  {
+   "id": "c-75e009a3fda3",
+   "claim": "In @firebase/rules-unit-testing, Firestore Emulator request.time runs in a separate JVM process unaffected by Node vi.useFakeTimers(), existsAfter() rules require atomic writeBatch() tests, and Node 20+ on macOS should bind 127.0.0.1 instead of localhost (::1)",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://firebase.google.com/docs/rules/unit-tests",
+     "fetched": "2026-10-24"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-24",
+   "history": [
+    {
+     "date": "2026-10-24",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "firebase",
+    "rules",
+    "testing",
+    "firestore",
+    "emulator",
+    "request",
+    "separate",
+    "process",
+    "unaffected",
+    "usefaketimers",
+    "rules-unit-testing",
+    "jvm"
+   ]
+  },
+  {
+   "id": "c-4bcf74669b32",
+   "claim": "Railway security disclosure on Oct 21, 2026: third party reached encrypted env vars and decrypted a subset",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://blog.railway.com/p/security-disclosure-wednesday-october-21st",
+     "fetched": "2026-10-23"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-23",
+   "history": [
+    {
+     "date": "2026-10-23",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "railway",
+    "security",
+    "disclosure",
+    "third",
+    "party",
+    "reached",
+    "encrypted",
+    "decrypted",
+    "subset",
+    "oct",
+    "env",
+    "vars"
+   ]
+  },
+  {
+   "id": "c-489416d73324",
+   "claim": "Ollama ships d1-omni and d1 through a /v1/systemone endpoint.",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Ollama ships d1-omni and d1 through a /v1/systemone endpoint.",
+   "sources": [
+    {
+     "url": "https://ollama.com/library/d1-omni",
+     "fetched": "2026-10-21"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-21",
+   "history": [
+    {
+     "date": "2026-10-21",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "ollama",
+    "ships",
+    "through",
+    "systemone",
+    "endpoint",
+    "d1-omni"
+   ]
+  },
+  {
+   "id": "c-51af5fc31094",
+   "claim": "Meta released Muse Spark Open on Oct 15, 816B total parameters (A42B), open weights, \"most capable US open-weight model to date\".",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Meta released Muse Spark Open on Oct 15, 816B total parameters (A42B), open weights, \"most capable US open-weight model to date\".",
+   "sources": [
+    {
+     "url": "https://research.meta.ai/blog/muse-spark-open",
+     "fetched": "2026-10-21"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-21",
+   "history": [
+    {
+     "date": "2026-10-21",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "released",
+    "spark",
+    "total",
+    "parameters",
+    "weights",
+    "capable",
+    "weight",
+    "model",
+    "meta",
+    "muse",
+    "oct",
+    "816b"
+   ]
+  },
+  {
+   "id": "c-54ca922c3a14",
+   "claim": "Faros AI, median time in PR review +441.5%, first review +156.6%, PRs ~51% larger, incidents per PR more than tripled, 31% more PRs merged with no review.",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Faros AI, median time in PR review +441.5%, first review +156.6%, PRs ~51% larger, incidents per PR more than tripled, 31% more PRs merged with no review.",
+   "sources": [
+    {
+     "url": "https://www.faros.ai/blog/ai-acceleration-whiplash-takeaways",
+     "fetched": "2026-10-21"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-21",
+   "history": [
+    {
+     "date": "2026-10-21",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "faros",
+    "median",
+    "review",
+    "first",
+    "larger",
+    "incidents",
+    "tripled",
+    "merged",
+    "prs"
+   ]
+  },
+  {
+   "id": "c-73526f1d7bcc",
+   "claim": "Muse Wonder Full 79.0% on DeepSWE (third-party reporting).",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Muse Wonder Full 79.0% on DeepSWE (third-party reporting).",
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=AqBaabHZ_Ag",
+     "fetched": "2026-10-21"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-21",
+   "history": [
+    {
+     "date": "2026-10-21",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "wonder",
+    "deepswe",
+    "third",
+    "party",
+    "reporting",
+    "muse",
+    "third-party"
+   ]
+  },
+  {
+   "id": "c-adbd2780ae08",
+   "claim": "\"Pro and Tell\", Oct 28, Los Angeles",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "\"Pro and Tell\", Oct 28, Los Angeles; OLED touch MacBook Pro. MacRumors says it keeps the Pro name (\"MacBook Ultra\" was a rumour).",
+   "sources": [
+    {
+     "url": "https://www.macrumors.com/2026/10/19/apple-october-28-product-launch/",
+     "fetched": "2026-10-21"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-21",
+   "history": [
+    {
+     "date": "2026-10-21",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "angeles",
+    "pro",
+    "oct"
+   ]
+  },
+  {
+   "id": "c-bd873e55907c",
+   "claim": "Meta Muse Wonder / Muse Wonder Full, built around \"Active Memory\" and \"Active Focus\", measured on Meta's own MemoryBench and FocusBench.",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Meta Muse Wonder / Muse Wonder Full, built around \"Active Memory\" and \"Active Focus\", measured on Meta's own MemoryBench and FocusBench.",
+   "sources": [
+    {
+     "url": "https://research.meta.ai/blog/muse-wonder",
+     "fetched": "2026-10-21"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-21",
+   "history": [
+    {
+     "date": "2026-10-21",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "wonder",
+    "built",
+    "around",
+    "active",
+    "memory",
+    "focus",
+    "measured",
+    "memorybench",
+    "focusbench",
+    "meta",
+    "muse"
+   ]
+  },
+  {
+   "id": "c-c13aa3196366",
+   "claim": "Liquid AI d1-3B (3.12B) and d1-omni-600M (587M), open weights, Oct 7",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Liquid AI d1-3B (3.12B) and d1-omni-600M (587M), open weights, Oct 7; every answer reports output_tokens 0; schema noul / choice / score.",
+   "sources": [
+    {
+     "url": "https://www.liquid.ai/blog/d1-open",
+     "fetched": "2026-10-21"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-21",
+   "history": [
+    {
+     "date": "2026-10-21",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "liquid",
+    "weights",
+    "d1-3b",
+    "12b",
+    "d1-omni-600m",
+    "587m",
+    "oct"
+   ]
+  },
+  {
+   "id": "c-ddd93690d2c7",
+   "claim": "Apple's own ML research blog runs it on linked Mac Studios with MLX (2 to 4 machines).",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Apple's own ML research blog runs it on linked Mac Studios with MLX (2 to 4 machines).",
+   "sources": [
+    {
+     "url": "https://machinelearning.apple.com/research/mlx-distributed-inference",
+     "fetched": "2026-10-21"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-21",
+   "history": [
+    {
+     "date": "2026-10-21",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "apple",
+    "research",
+    "linked",
+    "studios",
+    "machines",
+    "blog",
+    "mac",
+    "mlx"
+   ]
+  },
+  {
+   "id": "c-d472b1be2de2",
+   "claim": "Citadel bought the Situational Awareness portfolio.",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Citadel bought the Situational Awareness portfolio.",
+   "sources": [
+    {
+     "url": "https://www.reuters.com/markets/wealth/citadel-sheds-over-80-aggregate-risk-situational-awareness-portfolio-2026-08-21/",
+     "fetched": "2026-10-20"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-20",
+   "history": [
+    {
+     "date": "2026-10-20",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "citadel",
+    "bought",
+    "situational",
+    "awareness",
+    "portfolio"
+   ]
+  },
+  {
+   "id": "c-00e9f12035c6",
+   "claim": "AI will take 10 to 20% of existing SaaS businesses to zero",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (said on stage)",
+   "sources": [
+    {
+     "url": "https://www.movingavg.com/essays/microconf-europe-2026-notes.html",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "existing",
+    "businesses",
+    "saas",
+    "zero"
+   ]
+  },
+  {
+   "id": "c-01668ebd3bb0",
+   "claim": "Google A2UI announced 15 Dec 2025; v0.9.1, v1.0 candidate",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Repo moved to a2ui-project/a2ui",
+   "sources": [
+    {
+     "url": "https://developers.googleblog.com/introducing-a2ui-an-open-project-for-agent-driven-interfaces/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "google",
+    "announced",
+    "candidate",
+    "a2ui",
+    "dec"
+   ]
+  },
+  {
+   "id": "c-0194028333a9",
+   "claim": "Argent Signaling Protocol: grounding score 0.60 x context overlap + 0.40 x citation score; sidecar blocks 100 percent of ungrounded outputs",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED, but the 100 percent comes from a tiny test (24 of 27 blocked, zero ungrounded propagations)",
+   "sources": [
+    {
+     "url": "https://arxiv.org/html/2606.19356v1",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "argent",
+    "signaling",
+    "protocol",
+    "grounding",
+    "score",
+    "context",
+    "overlap",
+    "citation",
+    "sidecar",
+    "blocks",
+    "percent",
+    "ungrounded"
+   ]
+  },
+  {
+   "id": "c-04ce55314641",
+   "claim": "Spark was introduced in May 2026 (I/O), runs on Gemini 3.5 with the Antigravity harness",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://blog.google/innovation-and-ai/sundar-pichai-io-2026/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "spark",
+    "introduced",
+    "gemini",
+    "antigravity",
+    "harness"
+   ]
+  },
+  {
+   "id": "c-0636fb05a083",
+   "claim": "Portkey coined \"Harness Tax\" on 13 Apr 2026: about 2,600 input tokens for Pi, 15,000 for Codex and 27,000 for Claude Code; 1.12M tokens over 40 turns, about half of it overhead",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (published 14 Apr 06:53 UTC, the evening of 13 Apr in the US)",
+   "sources": [
+    {
+     "url": "https://portkey.ai/blog/the-harness-tax/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "portkey",
+    "coined",
+    "harness",
+    "input",
+    "tokens",
+    "codex",
+    "claude",
+    "turns",
+    "overhead",
+    "tax",
+    "apr",
+    "12m"
+   ]
+  },
+  {
+   "id": "c-0ab54b268064",
+   "claim": "SWE-agent: GPT-4 Turbo on SWE-bench Lite, 11.00% shell-only vs 18.00% with the ACI",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (18.00% = 54 of 300)",
+   "sources": [
+    {
+     "url": "https://arxiv.org/html/2405.15793",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "agent",
+    "turbo",
+    "bench",
+    "shell",
+    "swe-agent",
+    "gpt-4",
+    "swe-bench",
+    "lite",
+    "shell-only",
+    "aci"
+   ]
+  },
+  {
+   "id": "c-0db57bc2f109",
+   "claim": "\"Gen AI paradox\": about 8 in 10 companies use gen AI; about 90% of vertical use cases stuck in pilot",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/seizing-the-agentic-ai-advantage",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "paradox",
+    "companies",
+    "vertical",
+    "cases",
+    "stuck",
+    "pilot",
+    "gen"
+   ]
+  },
+  {
+   "id": "c-110eb0a5291e",
+   "claim": "MicroConf 2027 is in Austin in April",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (MicroConf US, 18 to 20 April 2027)",
+   "sources": [
+    {
+     "url": "https://microconf.com/us-flagship",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "microconf",
+    "austin",
+    "april"
+   ]
+  },
+  {
+   "id": "c-11913d4aa788",
+   "claim": "Scion figures (100 GB, 25M checkouts/day, 200x, 7 people in 5 months)",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The 7 people built Scion and Antique",
+   "sources": [
+    {
+     "url": "https://www.anthropic.com/engineering/redesigning-source-control",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "scion",
+    "figures",
+    "checkouts",
+    "people",
+    "months",
+    "25m",
+    "200x"
+   ]
+  },
+  {
+   "id": "c-1304eae07345",
+   "claim": "A Colorado LCA is formed under C.R.S. Title 7, Article 58",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://law.justia.com/codes/colorado/title-7/associations/article-58/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "colorado",
+    "formed",
+    "under",
+    "title",
+    "article",
+    "lca"
+   ]
+  },
+  {
+   "id": "c-14de2722c5ca",
+   "claim": "Claude Code has six permission modes: plan, default, acceptEdits, auto, dontAsk, bypassPermissions; auto uses a classifier",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED by the docs. \"v2.1.88\" is the npm version whose source leaked on 31 Mar 2026, so names like yoloClassifier.ts and the 5-stage compaction pipeline come from leaked code, not from documentation",
+   "sources": [
+    {
+     "url": "https://code.claude.com/docs/en/permission-modes",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "claude",
+    "permission",
+    "modes",
+    "default",
+    "acceptedits",
+    "dontask",
+    "bypasspermissions",
+    "classifier",
+    "auto"
+   ]
+  },
+  {
+   "id": "c-15ec7d1d88bb",
+   "claim": "Claude Code costs 2.0x Pi and 1.6x Codex on Lite, 1.5x Pi on TB2",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (geometric means of cost ratios)",
+   "sources": [
+    {
+     "url": "https://arena.ai/blog/coding-agents-harness-tax",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "claude",
+    "costs",
+    "codex",
+    "lite",
+    "tb2"
+   ]
+  },
+  {
+   "id": "c-16152ae56ba4",
+   "claim": "Workspace business/enterprise/non-profit in March 2027, education in June 2027",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (\"no sooner than\" those dates)",
+   "sources": [
+    {
+     "url": "https://knowledge.workspace.google.com/admin/generative-ai/gemini-app/about-the-transition-to-skills",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "workspace",
+    "business",
+    "enterprise",
+    "profit",
+    "march",
+    "education",
+    "non-profit"
+   ]
+  },
+  {
+   "id": "c-16ef4349a646",
+   "claim": "Merged PRs doubled; revert share fell >40%",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Relative share, no absolute baseline",
+   "sources": [
+    {
+     "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "merged",
+    "doubled",
+    "revert",
+    "share",
+    "prs"
+   ]
+  },
+  {
+   "id": "c-171c05a8ed2c",
+   "claim": "Monorepo merges 2,500/day (May) to 30,000+/day (Sep); peak 30,401",
+   "lang": "en",
+   "verdict": "PARTLY",
+   "finding": "30,000+ was the peak day. The 7-day average stayed under 20,000. The 30,401 figure is a third-party reading of Anthropic's chart.",
+   "sources": [
+    {
+     "url": "https://www.anthropic.com/engineering/redesigning-source-control",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "PARTLY",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "monorepo",
+    "merges",
+    "sep",
+    "peak"
+   ]
+  },
+  {
+   "id": "c-18fc32d67c44",
+   "claim": "The German Greens invented the precautionary principle in the 1970s to stop nuclear",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "The Vorsorgeprinzip came out of West German government environmental law in the early 1970s. The Green party was founded in 1980",
+   "sources": [
+    {
+     "url": "https://opil.ouplaw.com/display/10.1093/law:epil/9780199231690/law-9780199231690-e1603",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "german",
+    "greens",
+    "invented",
+    "precautionary",
+    "principle",
+    "nuclear",
+    "1970s"
+   ]
+  },
+  {
+   "id": "c-19cfe9b5fa5f",
+   "claim": "W3C Verifiable Credentials Data Model 2.0 is a standard using JSON-LD @context",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (W3C Recommendation, 15 May 2025)",
+   "sources": [
+    {
+     "url": "https://www.w3.org/TR/vc-data-model-2.0/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "verifiable",
+    "credentials",
+    "model",
+    "standard",
+    "using",
+    "context",
+    "w3c",
+    "json-ld"
+   ]
+  },
+  {
+   "id": "c-1a32f789e23b",
+   "claim": "Cursor's Origin forge launched in beta in August 2026",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (17 Aug 2026)",
+   "sources": [
+    {
+     "url": "https://forum.cursor.com/t/origin-code-hosting/168670",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "cursor",
+    "origin",
+    "forge",
+    "launched",
+    "august",
+    "beta"
+   ]
+  },
+  {
+   "id": "c-22e3edb70cfd",
+   "claim": "Launched in beta on Oct 5, 2026, as an MIT-licensed open-source CLI",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (blog dated 10/5/2026; the GitHub repo carries an MIT license)",
+   "sources": [
+    {
+     "url": "https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "launched",
+    "licensed",
+    "beta",
+    "oct",
+    "mit-licensed",
+    "open-source",
+    "cli"
+   ]
+  },
+  {
+   "id": "c-24e6848a68f5",
+   "claim": "Financed businesses hired at nearly 4x the rate",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (30% of customers vs 8% of prospects hired)",
+   "sources": [
+    {
+     "url": "https://www.forafinancial.com/business-insights/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "financed",
+    "businesses",
+    "hired",
+    "nearly"
+   ]
+  },
+  {
+   "id": "c-289049af5783",
+   "claim": "Fureai Kippu time banking has run since 1995",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (created 1995 by the Sawayaka Welfare Foundation; some sources trace its roots to 1973)",
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Fureai_kippu",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "fureai",
+    "kippu",
+    "banking",
+    "since"
+   ]
+  },
+  {
+   "id": "c-2cc5b5c2efba",
+   "claim": "Five-layer prompt-injection defense: classifiers, security thought reinforcement, markdown sanitization and URL redaction, user confirmation, mitigation notices; Gemini 2.5 hardening",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (Google security blog, 2025)",
+   "sources": [
+    {
+     "url": "https://blog.google/security/mitigating-prompt-injection-attacks/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "layer",
+    "prompt",
+    "injection",
+    "defense",
+    "classifiers",
+    "security",
+    "thought",
+    "reinforcement",
+    "markdown",
+    "sanitization",
+    "five-layer",
+    "prompt-injection"
+   ]
+  },
+  {
+   "id": "c-2d7ba0fc49a6",
+   "claim": "Atlassian rose 35% after its August 2026 results",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (7 Aug 2026)",
+   "sources": [
+    {
+     "url": "https://www.tikr.com/blog/heres-why-atlassian-stock-surged-35-last-friday",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "atlassian",
+    "august",
+    "results",
+    "rose"
+   ]
+  },
+  {
+   "id": "c-2e1444dd8e3d",
+   "claim": "GB300 NVL72: 72 Blackwell Ultra GPUs, 36 Grace CPUs, 288GB HBM3e per GPU (about 20TB total)",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://www.supermicro.com/datasheet/datasheet_SuperCluster_GB300_NVL72.pdf",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "blackwell",
+    "ultra",
+    "grace",
+    "total",
+    "gb300",
+    "nvl72",
+    "gpus",
+    "cpus",
+    "288gb",
+    "hbm3e",
+    "gpu",
+    "20tb"
+   ]
+  },
+  {
+   "id": "c-324ddadb4f63",
+   "claim": "REA is an MCP that connects an agent to Ghidra, Hopper or IDA plus app and web inspection",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (MIT license, repo morluto/rea)",
+   "sources": [
+    {
+     "url": "https://github.com/morluto/rea",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "connects",
+    "agent",
+    "ghidra",
+    "hopper",
+    "inspection",
+    "rea",
+    "mcp",
+    "ida",
+    "app",
+    "web"
+   ]
+  },
+  {
+   "id": "c-389bde07b38a",
+   "claim": "SQLite FTS5 bm25() uses k1 = 1.5",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "FTS5 hard-codes k1 = 1.2, b = 0.75",
+   "sources": [
+    {
+     "url": "https://sqlite.org/fts5.html",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "sqlite",
+    "fts5",
+    "bm25"
+   ]
+  },
+  {
+   "id": "c-38f532306376",
+   "claim": "FastRender: hundreds of agents, trillions of tokens, over 1M lines, about 1,000 files",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The trillions of tokens are given for the whole effort, not the browser alone",
+   "sources": [
+    {
+     "url": "https://cursor.com/blog/scaling-agents",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "fastrender",
+    "hundreds",
+    "agents",
+    "trillions",
+    "tokens",
+    "lines",
+    "files"
+   ]
+  },
+  {
+   "id": "c-398dbc351159",
+   "claim": "Anthropic cut much of Claude Code's system prompt",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "about 80% removed for Opus 5 and Fable 5, \"no measurable loss\" on coding evals",
+   "sources": [
+    {
+     "url": "https://aiweekly.co/alerts/anthropic-deletes-80-of-claude-codes-system-prompt-for-claude-5",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "anthropic",
+    "claude",
+    "system",
+    "prompt"
+   ]
+  },
+  {
+   "id": "c-3f63694dfe46",
+   "claim": "ImaJev-4B is #1 on the image decision benchmark, ahead of Jev-Omni and NeoHorse",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (Image JevBench v0.1.3: 76.39, 73.10, 71.94)",
+   "sources": [
+    {
+     "url": "https://huggingface.co/mohit67890/imajev-4b",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "imajev",
+    "image",
+    "decision",
+    "benchmark",
+    "ahead",
+    "neohorse",
+    "imajev-4b",
+    "jev-omni"
+   ]
+  },
+  {
+   "id": "c-41e9b4e08ff9",
+   "claim": "PRs with substantive comments rose 16% to 54%",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "substantive",
+    "comments",
+    "prs",
+    "rose"
+   ]
+  },
+  {
+   "id": "c-4236613d6e52",
+   "claim": "Hard requests escalate to \"Claude 3.5 Opus\"",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "The escalation model is Opus 5.5",
+   "sources": [
+    {
+     "url": "https://www.together.ai/link",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "requests",
+    "escalate",
+    "claude",
+    "opus"
+   ]
+  },
+  {
+   "id": "c-49701ddfdc5a",
+   "claim": "Apple M5 has a 96MB L2 cache",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "M5 has 16 MB shared L2 on performance cores and 6 MB on efficiency cores",
+   "sources": [
+    {
+     "url": "https://theapplewiki.com/wiki/M5",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "apple",
+    "cache",
+    "96mb"
+   ]
+  },
+  {
+   "id": "c-4aff091d346c",
+   "claim": "Churnkey learns across its customers' cancel flows",
+   "lang": "en",
+   "verdict": "PARTLY",
+   "finding": "Churnkey publishes a 34% average save rate across its customers. Optimizing one company's flow from another's outcomes is NOT FOUND as a stated feature",
+   "sources": [
+    {
+     "url": "https://churnkey.co/blog/how-12-huge-companies-save-millions-of-dollars-from-cancellation-flows/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "PARTLY",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "churnkey",
+    "learns",
+    "across",
+    "customers",
+    "cancel",
+    "flows"
+   ]
+  },
+  {
+   "id": "c-4b0cc9a81af5",
+   "claim": "C1 and Gateway Autofix exist",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://www.openui.com/docs",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "gateway",
+    "autofix",
+    "exist"
+   ]
+  },
+  {
+   "id": "c-4cddd2fc29fe",
+   "claim": "Llama 3.2 1B at 4-bit is about 695MB",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://huggingface.co/mlx-community/Llama-3.2-1B-Instruct-4bit",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "llama",
+    "4-bit",
+    "695mb"
+   ]
+  },
+  {
+   "id": "c-51f3f29a7a3b",
+   "claim": "4,800 vs 10,180 tokens; 51.7-52.8% cut overall; contact form 4.9 s vs 14.9 s",
+   "lang": "en",
+   "verdict": "PARTLY",
+   "finding": "51.7-52.8% holds against JSON only; against YAML it is 47.4%. The README shows 14.2 s; launch copy says 58%",
+   "sources": [
+    {
+     "url": "https://github.com/thesysdev/openui/tree/main/benchmarks",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "PARTLY",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "tokens",
+    "overall",
+    "contact",
+    "7-52"
+   ]
+  },
+  {
+   "id": "c-54ea42bdd187",
+   "claim": "Endex got about 3x faster results after moving to OpenAI's o-series reasoning models",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "OpenAI's page says improved intelligence at one-third the latency per turn with o3-mini",
+   "sources": [
+    {
+     "url": "https://openai.com/index/endex/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "endex",
+    "faster",
+    "results",
+    "moving",
+    "openai",
+    "series",
+    "reasoning",
+    "models",
+    "o-series"
+   ]
+  },
+  {
+   "id": "c-557839fdf0b2",
+   "claim": "Four convergence rules; mean rounds 2.08 to 1.32; PRs with 5+ rounds 8.9% to 1.5%",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The 83% is derived, not stated",
+   "sources": [
+    {
+     "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "convergence",
+    "rules",
+    "rounds",
+    "prs"
+   ]
+  },
+  {
+   "id": "c-563901bc0f41",
+   "claim": "\"Top firms generate 300% more revenue per employee\" (attributed to IBM and Anthropic)",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "The figure is PwC's: industries most exposed to AI saw 3x higher growth in revenue per employee (27% versus 9%). Industries not firms, growth not level, PwC not IBM or Anthropic",
+   "sources": [
+    {
+     "url": "https://www.pwc.com/gx/en/news-room/press-releases/2025/ai-linked-to-a-fourfold-increase-in-productivity-growth.html",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "firms",
+    "generate",
+    "revenue",
+    "employee",
+    "attributed",
+    "anthropic",
+    "ibm"
+   ]
+  },
+  {
+   "id": "c-5a5a6048a96f",
+   "claim": "@openuidev/a2ui 0.5.0; google-adk example; ADK 2.0 Workflow",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://developers.googleblog.com/why-we-built-adk-20/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "openuidev",
+    "google",
+    "example",
+    "workflow",
+    "a2ui",
+    "google-adk",
+    "adk"
+   ]
+  },
+  {
+   "id": "c-64020e20da85",
+   "claim": "wandb/openui: 22,611 stars, Apache-2.0, 0 releases",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://api.github.com/repos/wandb/openui",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "wandb",
+    "openui",
+    "stars",
+    "apache",
+    "releases",
+    "apache-2"
+   ]
+  },
+  {
+   "id": "c-66cf88bc5aea",
+   "claim": "Tiers of 0/1/2 humans; approval covers one SHA; a bot never fills a human slot",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "tiers",
+    "humans",
+    "approval",
+    "covers",
+    "never",
+    "fills",
+    "human",
+    "sha",
+    "bot",
+    "slot"
+   ]
+  },
+  {
+   "id": "c-67e0a3676a7d",
+   "claim": "Bridgewater estimates AI can dislocate 18% of American labor",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://news.bgov.com/bgov-labor/bridgewater-ceo-warns-that-ai-threatens-societal-breakdown",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "bridgewater",
+    "estimates",
+    "dislocate",
+    "american",
+    "labor"
+   ]
+  },
+  {
+   "id": "c-699fd54e24ca",
+   "claim": "Ghidra was released by the NSA in 2019",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (RSA Conference, March 2019)",
+   "sources": [
+    {
+     "url": "https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/1775584/ghidra-the-software-reverse-engineering-tool-youve-been-waiting-for-is-here/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "ghidra",
+    "released",
+    "nsa"
+   ]
+  },
+  {
+   "id": "c-6a9ba50bda60",
+   "claim": "\"Purpose Fidelity\" drops 42.5 percent over ten generations",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (author's own reported metric)",
+   "sources": [
+    {
+     "url": "https://www.researchgate.net/publication/393455755_Controlling_Semantic_Meaning_Through_Vocabulary_Compression_Using_Longman_Defining_Vocabulary_Constraint_to_Measure_and_Improve_Large_Language_Model_Output_Quality",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "purpose",
+    "fidelity",
+    "drops",
+    "generations",
+    "percent"
+   ]
+  },
+  {
+   "id": "c-73544846d7c0",
+   "claim": "GB300 NVL72 draws about 132 to 142 kW",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "draws",
+    "gb300",
+    "nvl72"
+   ]
+  },
+  {
+   "id": "c-7671f472c3c8",
+   "claim": "Microsoft has a 20-year deal for power from a Three Mile Island reactor that is due to restart in 2027",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (Crane Clean Energy Center, signed Sep 2024; restart now targeted for 2027)",
+   "sources": [
+    {
+     "url": "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "microsoft",
+    "power",
+    "three",
+    "island",
+    "reactor",
+    "restart",
+    "20-year",
+    "mile"
+   ]
+  },
+  {
+   "id": "c-772e9dbbe824",
+   "claim": "California \"almost passed a law to outlaw AI\"",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "SB 1047 would have required safety protocols for the largest models. It did not ban AI, and the governor vetoed it on Sep 29, 2024",
+   "sources": [
+    {
+     "url": "https://www.gov.ca.gov/wp-content/uploads/2024/09/SB-1047-Veto-Message.pdf",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "california",
+    "almost",
+    "passed",
+    "outlaw"
+   ]
+  },
+  {
+   "id": "c-778f6638cc99",
+   "claim": "OpenUI 1.0: MIT; 1.0.0 on 12 Oct (PR #1348); 1.0.1 on 15 Oct",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://github.com/thesysdev/openui/pull/1348",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "openui",
+    "mit",
+    "oct"
+   ]
+  },
+  {
+   "id": "c-7c293161cc57",
+   "claim": "Review post 15 Oct 2026; Scion and Antique post 13 Oct 2026",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Anthropic's index lists the review post as 16 Oct",
+   "sources": [
+    {
+     "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "review",
+    "scion",
+    "antique",
+    "oct"
+   ]
+  },
+  {
+   "id": "c-7dd02eb9a304",
+   "claim": "McKinsey: agentic systems widen the blast radius, so AI operations matter more",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (the \"LiveOps\" label itself was not found in McKinsey's text)",
+   "sources": [
+    {
+     "url": "https://medium.com/quantumblack/ai-value-the-growing-ai-operations-challenge-ca8621aa245c",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "mckinsey",
+    "agentic",
+    "systems",
+    "widen",
+    "blast",
+    "radius",
+    "operations",
+    "matter"
+   ]
+  },
+  {
+   "id": "c-7dfe2e636f63",
+   "claim": "Anthropic's Scion/Antique post (13 Oct 2026): about 2,500 merges a day in May, over 30,000 in September; seven people, five months; 200x smaller than the old mirrors; 25% CI CPU recovered",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The \"30,401 peak on 9 Sept\" and \"9.2x\" figures are not on the page",
+   "sources": [
+    {
+     "url": "https://www.anthropic.com/engineering/redesigning-source-control",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "anthropic",
+    "scion",
+    "antique",
+    "merges",
+    "september",
+    "seven",
+    "people",
+    "months",
+    "smaller",
+    "mirrors",
+    "oct",
+    "200x"
+   ]
+  },
+  {
+   "id": "c-80ff5c009071",
+   "claim": "BEIR SciFact: FTS5 1.94 ms vs 21.0 ms; NDCG 0.699 to 0.758 with RRF; +21.8% over ColBERTv2 hard negatives",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "These are vstash numbers from a 17-article Wikipedia corpus, not SciFact. +21.8% is a SciDocs result, not a hard-negative one.",
+   "sources": [
+    {
+     "url": "https://arxiv.org/html/2604.15484v1",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "scifact",
+    "negatives",
+    "beir",
+    "fts5",
+    "ndcg",
+    "rrf",
+    "colbertv2"
+   ]
+  },
+  {
+   "id": "c-8136ca731426",
+   "claim": "Opus 5 top-5 recall 71.9%; Beko slowdown; Atlassian 30.8% faster",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Same paper also shows 79.6% @5",
+   "sources": [
+    {
+     "url": "https://arxiv.org/html/2610.13668",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "recall",
+    "slowdown",
+    "atlassian",
+    "faster",
+    "opus",
+    "top-5",
+    "beko"
+   ]
+  },
+  {
+   "id": "c-8412507d2137",
+   "claim": "BCG: agentic-era tech partnerships fail on misaligned incentives, unclear data/IP ownership, decision-speed mismatch; BCG names partnership archetypes",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://www.bcg.com/publications/2026/how-executives-fix-failing-tech-ai-partnerships",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "agentic",
+    "partnerships",
+    "misaligned",
+    "incentives",
+    "unclear",
+    "ownership",
+    "decision",
+    "speed",
+    "mismatch",
+    "names",
+    "bcg",
+    "agentic-era"
+   ]
+  },
+  {
+   "id": "c-845804d0bf0a",
+   "claim": "Chainlit has an ask_user_for_approval interface",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "WRONG name. The real APIs are AskUserMessage, AskActionMessage and AskElementMessage (consent-gated UI)",
+   "sources": [
+    {
+     "url": "https://docs.chainlit.io/advanced-features/ask-user",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "chainlit",
+    "interface",
+    "user",
+    "approval"
+   ]
+  },
+  {
+   "id": "c-84caeb94bd0c",
+   "claim": "Kimi K3 is a 2.8T-parameter MoE with about 104B active parameters, multimodal",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (secondary sources)",
+   "sources": [
+    {
+     "url": "https://www.orcarouter.ai/blog/glm-5-3-vs-kimi-k3",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "parameter",
+    "active",
+    "parameters",
+    "multimodal",
+    "kimi",
+    "8t-parameter",
+    "moe",
+    "104b"
+   ]
+  },
+  {
+   "id": "c-863114d74d36",
+   "claim": "AI is now more persuasive than humans in debate",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED with a caveat: GPT-4 with personal data beat human opponents 64.4% of the time (N=900), but those were ordinary participants, not \"top debaters\"",
+   "sources": [
+    {
+     "url": "https://www.nature.com/articles/s41562-025-02194-6",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "persuasive",
+    "humans",
+    "debate"
+   ]
+  },
+  {
+   "id": "c-87aed469c464",
+   "claim": "Enterprise AI Executive has published a synthesis of 24 enterprise playbooks",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://enterpriseaiexecutive.ai/p/24-enterprise-ai-strategy-playbooks",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "enterprise",
+    "executive",
+    "published",
+    "synthesis",
+    "playbooks"
+   ]
+  },
+  {
+   "id": "c-8a8f19f167c1",
+   "claim": "Microsoft Research and Gap, 388 employees: one AI Mindset session gave 2.07 times the odds of a perfect score (p = .022)",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://microsoft.github.io/ai-mindset-experiment/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "microsoft",
+    "research",
+    "employees",
+    "mindset",
+    "session",
+    "times",
+    "perfect",
+    "score",
+    "gap",
+    "odds"
+   ]
+  },
+  {
+   "id": "c-8c02277e814e",
+   "claim": "Personal accounts' Gems are converted to Skills automatically in November 2026",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "On Nov 17, 2026 personal Gems move to Settings and stay usable. Automatic migration to draft skills applies to business accounts, no sooner than March 1, 2027",
+   "sources": [
+    {
+     "url": "https://knowledge.workspace.google.com/admin/generative-ai/gemini-app/about-the-transition-to-skills",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "personal",
+    "accounts",
+    "converted",
+    "skills",
+    "automatically",
+    "november",
+    "gems"
+   ]
+  },
+  {
+   "id": "c-93fb8b10375e",
+   "claim": "\"Instinct\" is Meta's link-all-your-accounts assistant",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "Instinct is a separate personal-agent startup; Meta's comparable agent is Muse",
+   "sources": [
+    {
+     "url": "https://agentaya.com/meta-muse-vs-instinct/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "instinct",
+    "accounts",
+    "assistant",
+    "meta",
+    "link-all-your-accounts"
+   ]
+  },
+  {
+   "id": "c-9731e17b0f3e",
+   "claim": "About a 40-minute interview on Silicon Valley Girl titled about making AI your strategic partner",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://marinamogilko.co/episode/_aUKWYHLKfE/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "minute",
+    "interview",
+    "silicon",
+    "valley",
+    "titled",
+    "making",
+    "strategic",
+    "partner",
+    "40-minute"
+   ]
+  },
+  {
+   "id": "c-9c1fc06c32a5",
+   "claim": "11,252 stars, 757 forks; created 2 Dec 2024; 6M downloads",
+   "lang": "en",
+   "verdict": "PARTLY",
+   "finding": "Now 12,199 stars / 826 forks. \"6M\" is Thesys's own launch figure",
+   "sources": [
+    {
+     "url": "https://api.github.com/repos/thesysdev/openui",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "PARTLY",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "stars",
+    "forks",
+    "created",
+    "downloads",
+    "dec"
+   ]
+  },
+  {
+   "id": "c-a27defe73ebb",
+   "claim": "IDA dates from the 1990s",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (first release May 1991)",
+   "sources": [
+    {
+     "url": "https://hex-rays.com/blog/ida-celebrating-30-years-of-binary-analysis-innovation",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "dates",
+    "ida",
+    "1990s"
+   ]
+  },
+  {
+   "id": "c-a3d2cbef367a",
+   "claim": "Colorado 2026 residential assessment: 6.8% local government, 7.05% schools",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://dpt.colorado.gov/understanding-property-taxes-in-colorado",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "colorado",
+    "residential",
+    "assessment",
+    "local",
+    "government",
+    "schools"
+   ]
+  },
+  {
+   "id": "c-a667f4ad245f",
+   "claim": "Together's OpenRouter token shares: DeepSeek V4.1 Flash 40.8%, GLM 5.3 Flash 28.2%, Kimi K3 23.1%",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (as of 9/30/2026). The report misreads these: each figure is Together's share of that one model's OpenRouter traffic. They do not compare the models with each other",
+   "sources": [
+    {
+     "url": "https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "together",
+    "openrouter",
+    "token",
+    "shares",
+    "deepseek",
+    "flash",
+    "glm",
+    "kimi"
+   ]
+  },
+  {
+   "id": "c-a7adfa19e5b3",
+   "claim": "IBM and Anthropic say AI shifts work from typing to supervising",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED for IBM; the Anthropic half was NOT FOUND in one search",
+   "sources": [
+    {
+     "url": "https://www.ibm.com/think/topics/ai-ide",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "anthropic",
+    "shifts",
+    "typing",
+    "supervising",
+    "ibm"
+   ]
+  },
+  {
+   "id": "c-a83b15217a0b",
+   "claim": "Cursor removed guardrails as models improved",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://cursor.com/blog/continually-improving-agent-harness",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "cursor",
+    "removed",
+    "guardrails",
+    "models",
+    "improved"
+   ]
+  },
+  {
+   "id": "c-a89978d83885",
+   "claim": "57% say cash flow got harder since January",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://www.forafinancial.com/business-insights/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "harder",
+    "since",
+    "january",
+    "cash",
+    "flow"
+   ]
+  },
+  {
+   "id": "c-aa3a17f6056e",
+   "claim": "Cerebras wafer chip is about 46,000 mm2 with 4 trillion transistors",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (WSE-3 is 46,225 mm2, 4 trillion transistors)",
+   "sources": [
+    {
+     "url": "https://www.cerebras.ai/chip",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "cerebras",
+    "wafer",
+    "trillion",
+    "transistors",
+    "chip",
+    "mm2"
+   ]
+  },
+  {
+   "id": "c-b0d962cb2a88",
+   "claim": "REA output includes pseudocode, evidence and unknowns",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The README says results include the evidence and limitations behind each conclusion",
+   "sources": [
+    {
+     "url": "https://github.com/morluto/rea",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "output",
+    "includes",
+    "pseudocode",
+    "evidence",
+    "unknowns",
+    "rea"
+   ]
+  },
+  {
+   "id": "c-b4c98eb339ce",
+   "claim": "json-render: RFC 6902; PDF/Remotion/Ink/R3F",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://github.com/vercel-labs/json-render",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "render",
+    "remotion",
+    "json-render",
+    "rfc",
+    "pdf",
+    "ink",
+    "r3f"
+   ]
+  },
+  {
+   "id": "c-b6788cacda94",
+   "claim": "Claude Code created Sep 2024; GA May 2025 with Opus 4 / Sonnet 4",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Research preview Feb 2025; GA 22 May 2025",
+   "sources": [
+    {
+     "url": "https://www.taskade.com/blog/claude-code-history",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "claude",
+    "created",
+    "sonnet",
+    "sep",
+    "opus"
+   ]
+  },
+  {
+   "id": "c-b921be5c4142",
+   "claim": "Claude Code's first-call context is over 10x Pi's",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (mean across all seven models)",
+   "sources": [
+    {
+     "url": "https://arena.ai/blog/coding-agents-harness-tax",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "claude",
+    "first",
+    "context",
+    "first-call",
+    "10x"
+   ]
+  },
+  {
+   "id": "c-ba2e95545039",
+   "claim": "P&G field experiment, 776 professionals: individuals with AI matched two-person teams without AI and broke down R&D vs commercial silos",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://pubsonline.informs.org/doi/abs/10.1287/orsc.2025.20702",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "field",
+    "experiment",
+    "professionals",
+    "individuals",
+    "matched",
+    "person",
+    "teams",
+    "without",
+    "broke",
+    "commercial",
+    "two-person",
+    "silos"
+   ]
+  },
+  {
+   "id": "c-be753c44691b",
+   "claim": "GraphRAG uses hierarchical Leiden community detection",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (Microsoft, \"From Local to Global\")",
+   "sources": [
+    {
+     "url": "https://arxiv.org/html/2404.16130v2",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "graphrag",
+    "hierarchical",
+    "leiden",
+    "community",
+    "detection"
+   ]
+  },
+  {
+   "id": "c-be866cec457f",
+   "claim": "Stripe Radar learns across merchants",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "\"trained on more than 70 trillion data points across the Stripe network\"",
+   "sources": [
+    {
+     "url": "https://stripe.com/radar",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "stripe",
+    "radar",
+    "learns",
+    "across",
+    "merchants"
+   ]
+  },
+  {
+   "id": "c-c00df0e2a790",
+   "claim": "About 25% of respondents were Fora customers",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (84 of 332)",
+   "sources": [
+    {
+     "url": "https://www.forafinancial.com/business-insights/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "respondents",
+    "customers",
+    "fora"
+   ]
+  },
+  {
+   "id": "c-c2dbf34af45e",
+   "claim": "LongMemEval-S: full-context 7B 0.050; two-stage 0.382-0.402; BM25 0.252; semantic tier +60%",
+   "lang": "en",
+   "verdict": "PARTLY",
+   "finding": "At the default k=4 the gain is about +52%. +60% holds only at k=2. Source is MemTier.",
+   "sources": [
+    {
+     "url": "https://arxiv.org/html/2605.03675v3",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "PARTLY",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "longmemeval",
+    "context",
+    "stage",
+    "semantic",
+    "longmemeval-s",
+    "full-context",
+    "two-stage",
+    "382-0",
+    "bm25",
+    "tier"
+   ]
+  },
+  {
+   "id": "c-c41d110afcaf",
+   "claim": "DeepContext (2026): stateful intent-drift detector, F1 0.84 on multi-turn jailbreaks, under 20 ms",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (arXiv 2602.16935, Feb 2026; under 20 ms on a T4 GPU)",
+   "sources": [
+    {
+     "url": "https://arxiv.org/abs/2602.16935",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "deepcontext",
+    "stateful",
+    "intent",
+    "drift",
+    "detector",
+    "multi",
+    "jailbreaks",
+    "under",
+    "intent-drift",
+    "multi-turn"
+   ]
+  },
+  {
+   "id": "c-c507939f205c",
+   "claim": "HarnessRouter: 475x cost spread across 8 harness and model setups",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "It is the vendor's own \"Care Prep\" benchmark (one task, 5 runs each). The \"harness alone 2.1x, p95 latency over 3x\" part was not checked",
+   "sources": [
+    {
+     "url": "https://www.epsilla.com/blogs/harnessrouter-tech-stack-deep-dive-unified-harness-protocol",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "harnessrouter",
+    "spread",
+    "across",
+    "harness",
+    "model",
+    "setups",
+    "475x"
+   ]
+  },
+  {
+   "id": "c-c733bb9de220",
+   "claim": "17 packages; 7,114,178 downloads in 12 months; React 96.1%",
+   "lang": "en",
+   "verdict": "PARTLY",
+   "finding": "Rolling window as of 10/18: 7,725,426. React share 96.12%",
+   "sources": [
+    {
+     "url": "https://api.npmjs.org/downloads/point/last-year/@openuidev/lang-core",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "PARTLY",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "packages",
+    "downloads",
+    "months",
+    "react"
+   ]
+  },
+  {
+   "id": "c-c734c0144e1c",
+   "claim": "Ultra gives 20 times Pro's usage",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED with a caveat: Ultra is sold as 5x or 20x tiers",
+   "sources": [
+    {
+     "url": "https://support.google.com/gemini/answer/16275805?hl=en",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "ultra",
+    "gives",
+    "times",
+    "usage",
+    "pro"
+   ]
+  },
+  {
+   "id": "c-c9c8a1bff89a",
+   "claim": "Native Rust Automerge apply time is about 88.19 ms",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED as a number, misused. It is one column in Loro's own CRDT benchmark, where Automerge is the comparison, not a real-time guarantee",
+   "sources": [
+    {
+     "url": "https://loro.dev/docs/performance/native",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "native",
+    "automerge",
+    "apply",
+    "rust"
+   ]
+  },
+  {
+   "id": "c-d10cb54a2d9c",
+   "claim": "Meta RADAR reverts 1/3 as often",
+   "lang": "en",
+   "verdict": "PARTLY",
+   "finding": "Confounded: RADAR only reviews low-risk diffs",
+   "sources": [
+    {
+     "url": "https://arxiv.org/html/2605.30208v1",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "PARTLY",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "radar",
+    "reverts",
+    "often",
+    "meta"
+   ]
+  },
+  {
+   "id": "c-d9637d8647e5",
+   "claim": "Mythos Preview rewrote ingestion 20x/4x; Claude Tag",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Early internal Mythos version; Tag is internal",
+   "sources": [
+    {
+     "url": "https://www.anthropic.com/engineering/redesigning-source-control",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "mythos",
+    "preview",
+    "rewrote",
+    "ingestion",
+    "claude",
+    "20x",
+    "tag"
+   ]
+  },
+  {
+   "id": "c-dd04432061b0",
+   "claim": "About 145,000 acres of protected land around Boulder",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (tourism source; county open space page lists its own acreage separately)",
+   "sources": [
+    {
+     "url": "https://travelboulder.com/boulder-county-commitment-to-open-space/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "acres",
+    "protected",
+    "around",
+    "boulder"
+   ]
+  },
+  {
+   "id": "c-e57cedc9bb17",
+   "claim": "LLVM bans AI on good first issues; QGIS bans AI",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "QGIS QEP 428, main repo only",
+   "sources": [
+    {
+     "url": "https://llvm.org/docs/AIToolPolicy.html",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "first",
+    "issues",
+    "llvm",
+    "bans",
+    "qgis"
+   ]
+  },
+  {
+   "id": "c-e92178cfc0fc",
+   "claim": "Reimbi was in TinySeed's first batch (2019) and reimburses candidate interview expenses",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "The cited source says the same.",
+   "sources": [
+    {
+     "url": "https://tinyseed.com/latest/tinyseeds-2019-batch-funding-announcement-reimbi",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "reimbi",
+    "tinyseed",
+    "first",
+    "batch",
+    "reimburses",
+    "candidate",
+    "interview",
+    "expenses"
+   ]
+  },
+  {
+   "id": "c-eda5bfaa4e42",
+   "claim": "MicroConf Europe 2026 was held in Iceland",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (Reykjavik, from 22 Sept 2026)",
+   "sources": [
+    {
+     "url": "https://www.movingavg.com/essays/microconf-europe-2026-notes.html",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "microconf",
+    "europe",
+    "iceland"
+   ]
+  },
+  {
+   "id": "c-efadab33c5f1",
+   "claim": "Index-RAG segments at paragraph boundaries and stores text locations for citation",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED (open preprint, 2026)",
+   "sources": [
+    {
+     "url": "https://www.preprints.org/manuscript/202603.2025",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "index",
+    "segments",
+    "paragraph",
+    "boundaries",
+    "stores",
+    "locations",
+    "citation",
+    "index-rag",
+    "text"
+   ]
+  },
+  {
+   "id": "c-efcda3939088",
+   "claim": "Over 1,000 state-level AI measures are in play",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED, but they are bills introduced in 2025, not laws",
+   "sources": [
+    {
+     "url": "https://www.ncsl.org/resources/details/new-trends-emerge-as-states-refine-ai-legislation",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "state",
+    "level",
+    "measures",
+    "state-level"
+   ]
+  },
+  {
+   "id": "c-eff2e3bbd298",
+   "claim": "73% of Americans say no data center nearby, more than oppose a nuclear plant",
+   "lang": "en",
+   "verdict": "WRONG",
+   "finding": "WRONG on the number, right on the direction. Gallup: 71% oppose a data center in their area vs 53% for a nuclear plant",
+   "sources": [
+    {
+     "url": "https://news.gallup.com/poll/709772/americans-oppose-data-centers-area.aspx",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "WRONG",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "americans",
+    "center",
+    "nearby",
+    "oppose",
+    "nuclear",
+    "plant"
+   ]
+  },
+  {
+   "id": "c-f1430ed629b5",
+   "claim": "HarnessTax: 21 model-harness pairs (7 models x Claude Code / Codex CLI / Pi); harness effect within about 2 points on SWE-bench Lite and about 5 on Terminal-Bench 2.0",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "30 tasks x 3 repetitions per pair",
+   "sources": [
+    {
+     "url": "https://arena.ai/blog/coding-agents-harness-tax",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "harnesstax",
+    "model",
+    "harness",
+    "pairs",
+    "models",
+    "claude",
+    "codex",
+    "effect",
+    "within",
+    "points",
+    "model-harness",
+    "cli"
+   ]
+  },
+  {
+   "id": "c-f6958d5e125d",
+   "claim": "Anthropic postmortem: a \"keep text between tool calls to 25 words or fewer\" line caused a quality drop, fixed by v2.1.116",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "Added 16 Apr 2026 with Opus 4.7, reverted 20 Apr in v2.1.116; postmortem published 23 Apr",
+   "sources": [
+    {
+     "url": "https://www.anthropic.com/engineering/april-23-postmortem",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "anthropic",
+    "postmortem",
+    "between",
+    "calls",
+    "words",
+    "fewer",
+    "caused",
+    "quality",
+    "fixed",
+    "text",
+    "tool"
+   ]
+  },
+  {
+   "id": "c-fae712f951dc",
+   "claim": "US power output has been roughly flat for 25 years while China's grew far faster",
+   "lang": "en",
+   "verdict": "CONFIRMED",
+   "finding": "CONFIRMED in direction (VanEck/Bloomberg: China's generation grew nearly fivefold since 2005 while US output stayed flat). The exact \"16%\" figure was not checked",
+   "sources": [
+    {
+     "url": "https://www.vaneck.com/us/en/blogs/natural-resources/the-power-divide-china-us-and-the-future-of-the-grid/",
+     "fetched": "2026-10-19"
+    }
+   ],
+   "checked_by": "an AI checker that read the cited source",
+   "checked": "2026-10-19",
+   "history": [
+    {
+     "date": "2026-10-19",
+     "verdict": "CONFIRMED",
+     "by": "an AI checker that read the cited source"
+    }
+   ],
+   "words": [
+    "power",
+    "output",
+    "roughly",
+    "years",
+    "china",
+    "faster",
+    "flat",
+    "grew"
+   ]
+  }
+ ]
+}

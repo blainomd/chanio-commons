@@ -100,6 +100,24 @@ if (M && GIVE) {
   check(self.some((x) => /cannot review their own gift/.test(x)), "refused: the giver reviewing their own gift", self.join("; "));
 } else check(false, "the gift and review checks ran (NOT CHECKED is never a pass)");
 
+// The published file: published/v1.json is the exact commons file chanio.com serves, the one Blaine approved by its
+// sha256 (2026-11-24). It passes the rules, it is the recorded copy, and an edit to it without the sync fails.
+const PUB = path.join(ROOT, "published", "v1.json");
+const pubOk = fs.existsSync(PUB);
+check(pubOk, "published/v1.json is here (the commons file chanio.com serves)");
+if (pubOk && R) {
+  const doc = JSON.parse(fs.readFileSync(PUB, "utf8"));
+  const p = R.commonsProblems(doc);
+  check(p.length === 0 && (doc.entries || []).length > 0, `the published file passes the rules (${(doc.entries || []).length} entries)`, p.slice(0, 3).join("; "));
+  const tmp3 = fs.mkdtempSync(path.join(os.tmpdir(), "chanio-commons-"));
+  fs.cpSync(ROOT, tmp3, { recursive: true, filter: (s) => !s.includes(`${path.sep}.git`) });
+  const pubCopy = path.join(tmp3, "published", "v1.json");
+  fs.writeFileSync(pubCopy, fs.readFileSync(pubCopy, "utf8").replace(/"verdict": ?"WRONG"/, '"verdict":"CONFIRMED"'));
+  const r3 = spawnSync(process.execPath, [path.join(tmp3, "tools", "check.mjs")], { encoding: "utf8" });
+  check(r3.status === 1 && /FAIL published\/v1\.json is the recorded copy/.test(r3.stdout), "refused: the published file edited without the sync (a WRONG verdict turned CONFIRMED)", r3.stdout.slice(-300));
+  fs.rmSync(tmp3, { recursive: true, force: true });
+} else check(false, "the published-file checks ran (NOT CHECKED is never a pass)");
+
 // And the repo as it stands passes.
 const live = spawnSync(process.execPath, [path.join(ROOT, "tools", "check.mjs")], { encoding: "utf8" });
 check(live.status === 0, "the repo as it stands passes tools/check.mjs", live.stdout.slice(-300));

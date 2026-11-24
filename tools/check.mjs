@@ -33,7 +33,25 @@ if (at > 0) {
   }
 }
 
-// 3. Every proposal stands.
+// 3. The published file is the one chanio.com serves, as approved by its sha256 (published/SHA256SUMS). Optionally it is
+//    still the same bytes as that checkout's public/commons/v1.json, and the sha its commons/approved.json names.
+const pubSums = path.join(ROOT, "published", "SHA256SUMS");
+if (fs.existsSync(pubSums)) {
+  for (const [want, name] of fs.readFileSync(pubSums, "utf8").trim().split("\n").map((l) => l.split(/\s+/))) {
+    const file = path.join(ROOT, "published", name);
+    const got = fs.existsSync(file) ? createHash("sha256").update(fs.readFileSync(file)).digest("hex") : "missing";
+    say(got === want, `published/${name} is the recorded copy${got === want ? "" : ` (sha256 ${got.slice(0, 12)}, recorded ${want.slice(0, 12)})`}`);
+    if (at > 0) {
+      const repo = process.argv[at + 1];
+      const theirs = path.join(repo, "public", "commons", name);
+      say(fs.existsSync(theirs) && fs.existsSync(file) && Buffer.compare(fs.readFileSync(theirs), fs.readFileSync(file)) === 0, `published/${name} is the same bytes as ${theirs}`);
+      let approved = null; try { approved = JSON.parse(fs.readFileSync(path.join(repo, "commons", "approved.json"), "utf8")).sha256; } catch { /* below */ }
+      say(approved === want, `published/${name} is the file ${path.join(repo, "commons", "approved.json")} approves${approved === want ? "" : ` (it names ${String(approved).slice(0, 12)})`}`);
+    }
+  }
+}
+
+// 4. Every proposal stands.
 const results = checkDir();
 for (const { file, problems } of results) {
   if (!problems.length) say(true, path.relative(ROOT, file));

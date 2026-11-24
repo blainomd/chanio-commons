@@ -16,6 +16,7 @@ This repo is where anyone can propose a checked answer and read the rules that j
 | `starter/` | Two files the rules read, at the same paths as in chanio.com: `members.mjs` (member keys and signatures) and `common-words.txt` (the 10,000 most common English words, which tell a claim that names its subject from one that does not). Copied with the rules and checked by the same hashes. |
 | `REVIEW.md` | How a gift (one question and its answer, signed by the person who asked) is reviewed, and when it becomes an entry. |
 | `proposals/` | One file per proposed answer, named by its id. Empty until the first proposal is merged. |
+| `published/` | The commons file chanio.com serves (`v1.json`), byte for byte, and its sha256 (`SHA256SUMS`). It changes only when a new file is approved by its exact bytes and published there. |
 | `examples/` | One worked proposal that passes the rules. |
 | `tools/` | `propose.mjs` writes a proposal from what you read; `check.mjs` is what every pull request must pass; `check.test.mjs` proves the check refuses what it should. |
 
@@ -55,9 +56,11 @@ account. Nothing in this repo sends anything for you.
   it would be signed, keeps it home if it holds a name, a health or crisis word, a key or no public source, and signs it
   with their member key only on their yes. It waits on that Mac. Nothing is sent, and nothing is accepted: the rules
   accept a gift only when two reviewers from two groups sign it, and the list of reviewers is empty ([REVIEW.md](REVIEW.md)).
-- **Not yet:** the commons file itself is not published, so chanio.com/commons/v1.json answers 404. Merged proposals do
-  not flow into the file yet: the build that will read them is not written. Each new commons file is published only when
-  its exact bytes are approved.
+- **Published (2026-11-24):** the first commons file, at chanio.com/commons/v1.json: 139 checked answers (119 confirmed,
+  8 in part, 12 wrong), approved by its exact sha256 (543666e1…, in `published/SHA256SUMS`). `published/v1.json` is the
+  same bytes.
+- **Not yet:** merged proposals do not flow into the file yet: the build that will read them is not written. Each new
+  commons file is published only when its exact bytes are approved.
 - **Planned, with no date:** chanio is meant to belong to the people who use it, one person, one vote, and an AI never
   gets a vote. None of that exists yet: no co-op, nothing to join.
 
