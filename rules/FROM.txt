@@ -1,1 +1,4 @@
-Copied from blainomd/chanio.com commons/ at 49272fa on 2026-11-24 (origin/main).
+Copied from blainomd/chanio.com at 553e947 on 2026-11-24 (origin/main):
+  commons/check.mjs, commons/v1.schema.json -> rules/
+  starter/members.mjs, starter/common-words.txt -> starter/ (rules/check.mjs reads both at ../starter/)
+SHA256SUMS records all four; node tools/check.mjs --against <a chanio.com checkout> compares the bytes.

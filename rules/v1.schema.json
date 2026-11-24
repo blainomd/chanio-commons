@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://chanio.com/commons/v1.schema.json",
   "title": "chanio commons, version 1",
-  "description": "One public file of checked claims that every chanio downloads the same way, with a plain GET and nothing about the person. Matching it to a person's notes runs on their device, and an entry is shown as its own labelled part, never blended into their notes. It never holds a person, a name, health or crisis content, a price, or a venture. commons/check.mjs enforces this shape and the content rules; tests/commons.test.mjs runs it in the stage gate. Decided 2026-11-23 (pull first, give later). An entry is a living knowledge ledger: a claim, its evidence, a verdict and its dated history; its id stays the same when a recheck changes the verdict.",
+  "description": "One public file of checked claims that every chanio downloads the same way, with a plain GET and nothing about the person. Matching it to a person's notes runs on their device, and an entry is shown as its own labelled part, never blended into their notes. It never holds a person, a name, health or crisis content, a price, or a venture. commons/check.mjs enforces this shape and the content rules; tests/commons.test.mjs runs it in the stage gate. Decided 2026-11-23 (pull first, give later). 2026-11-24: an entry may also carry a passion and the entry it grew_from (passions grow together); both are optional, so an entry without them is unchanged. An entry is a living knowledge ledger: a claim, its evidence, a verdict and its dated history; its id stays the same when a recheck changes the verdict.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -173,6 +173,33 @@
               "pattern": "^[a-z0-9][a-z0-9-]{2,30}$"
             },
             "description": "Lower-case words a chanio matches the entry by, against the person's own notes, on their device."
+          },
+          "passion": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key"
+            ],
+            "description": "Optional (added 2026-11-24, passions grow together). The passion the entry belongs to. A device shows an entry that has one only when the person's own notes mention it: the key's words in order (joined by a space, a hyphen or an underscore, any case, whole words, a plural s or es on the last) or its Wikidata id (commons/check.mjs passionMentioned). Which passions a person has never leaves their device.",
+            "properties": {
+              "key": {
+                "type": "string",
+                "pattern": "^[a-z0-9]{2,}(?:-[a-z0-9]{2,}){0,3}$",
+                "minLength": 3,
+                "maxLength": 40,
+                "description": "Lower-case words joined by hyphens, up to four: reverse-engineering. Never a name, health, crisis content, a price or a venture."
+              },
+              "wikidata": {
+                "type": "string",
+                "pattern": "^Q[1-9][0-9]{0,9}$",
+                "description": "The Wikidata item for the passion, where one exists."
+              }
+            }
+          },
+          "grew_from": {
+            "type": "string",
+            "pattern": "^c-[0-9a-f]{12}$",
+            "description": "Optional (added 2026-11-24). The id of the entry in this same file this one grew on, about the same passion: the checked question a later question on that passion grew on top of. Never the entry's own id, and following it never loops."
           }
         }
       }

@@ -56,6 +56,49 @@ fs.appendFileSync(path.join(tmp, "rules", "check.mjs"), "\n// a quiet edit\n");
 const r = spawnSync(process.execPath, [path.join(tmp, "tools", "check.mjs")], { encoding: "utf8" });
 check(r.status === 1 && /FAIL rules\/check\.mjs is the recorded copy/.test(r.stdout), "refused: rules/ edited without the sync", r.stdout.slice(-300));
 fs.rmSync(tmp, { recursive: true, force: true });
+const tmp2 = fs.mkdtempSync(path.join(os.tmpdir(), "chanio-commons-"));
+fs.cpSync(ROOT, tmp2, { recursive: true, filter: (s) => !s.includes(`${path.sep}.git`) });
+const words2 = path.join(tmp2, "starter", "common-words.txt");
+const had = fs.existsSync(words2);
+if (had) fs.appendFileSync(words2, "notaword\n");
+const r2 = spawnSync(process.execPath, [path.join(tmp2, "tools", "check.mjs")], { encoding: "utf8" });
+check(had && r2.status === 1 && /FAIL rules\/\.\.\/starter\/common-words\.txt is the recorded copy/.test(r2.stdout), "refused: starter/ edited without the sync", r2.stdout.slice(-300));
+fs.rmSync(tmp2, { recursive: true, force: true });
+
+// The rules run here exactly as they run on chanio.com: rules/check.mjs reads ../starter/common-words.txt and
+// ../starter/members.mjs, so both sit at those paths. Without the word list a claim chanio.com accepts is refused here.
+const { pathToFileURL } = await import("node:url");
+let R = null; try { R = await import(pathToFileURL(path.join(ROOT, "rules", "check.mjs")).href); } catch (e) { R = null; }
+check(!!R, "rules/check.mjs loads");
+check(R?.COMMON_WORDS?.size === 10000, "the rules read the same 10,000 common English words chanio.com does (starter/common-words.txt)", R?.COMMON_WORDS?.size ?? "no word list");
+check(R?.standsAlone?.("Sourdough starters need feeding every day at room temperature") === true, "a claim chanio.com accepts stands alone here too (needs the word list)");
+
+// Giving: a gift is signed with a member key, and two reviewers from two groups accept it, never today.
+let M = null; try { M = await import(pathToFileURL(path.join(ROOT, "starter", "members.mjs")).href); } catch { M = null; }
+const GIVE = !!R && ["giftProblems", "giftSigProblems", "giftHash", "acceptProblems", "entryFromGift"].every((x) => typeof R[x] === "function");
+check(!!M && GIVE, "starter/members.mjs loads, and the rules have the gift and review checks");
+check(Array.isArray(R?.REVIEWERS) && R.REVIEWERS.length === 0 && Object.isFrozen(R.REVIEWERS), "REVIEWERS is empty and frozen (who reviews is the members' choice, once there are members)");
+if (M && GIVE) {
+  const mk = async () => { const k = await M.makeBrowserKey(); return { key: k.key, sign: M.browserSigner(k.privateKey) }; };
+  const [rootK, giver, r1, r2, r3] = [await mk(), await mk(), await mk(), await mk(), await mk()];
+  const roots = [rootK.key];
+  const card = M.extendCard(M.rootCard(rootK.key), await M.makeVouch(await M.makeRequest(giver.key, giver.sign, "2026-11-24"), rootK.key, rootK.sign, "2026-11-24"));
+  const b = { v: 1, type: "gift", q: "Which license covers the structured data in Wikidata?", answer: "All structured data in the main, property and lexeme namespaces of Wikidata is under CC0.", sources: [{ url: "https://www.wikidata.org/wiki/Wikidata:Licensing" }], lang: "en", date: "2026-11-24", key: giver.key, passion: { key: "open-data" }, card };
+  const gift = { ...b, sig: await giver.sign(M.message("gift", b)) };
+  const CLAIM = "All structured data in Wikidata is available under the Creative Commons CC0 license";
+  const review = async (who) => { const x = { v: 1, type: "review", gift: await R.giftHash(gift), verdict: "CONFIRMED", claim: CLAIM, finding: "The licensing page says structured data in the main, property and lexeme namespaces is under CC0.", date: "2026-11-25", key: who.key }; return { ...x, sig: await who.sign(M.message("review", x)) }; };
+  const REV = [{ key: r1.key, group: "a" }, { key: r2.key, group: "b" }, { key: r3.key, group: "a" }];
+  const sig = await R.giftSigProblems(gift, { roots });
+  check(sig.length === 0, "a signed gift from a vouched member passes its signature check", sig.join("; "));
+  const today = await R.acceptProblems(gift, [await review(r1), await review(r2)], { roots });
+  check(today.length === 1 && /until reviewers exist/.test(today[0]), "nothing is accepted today, because REVIEWERS is empty", today.join("; "));
+  const ok = await R.acceptProblems(gift, [await review(r1), await review(r2)], { reviewers: REV, roots });
+  check(ok.length === 0, "control: two test reviewers from two groups accept a good gift (so the rule can say yes)", ok.join("; "));
+  const one = await R.acceptProblems(gift, [await review(r1), await review(r3)], { reviewers: REV, roots });
+  check(one.some((x) => /all from one group/.test(x)), "refused: two reviewers from one group", one.join("; "));
+  const self = await R.acceptProblems(gift, [await review(giver), await review(r2)], { reviewers: [...REV, { key: giver.key, group: "c" }], roots });
+  check(self.some((x) => /cannot review their own gift/.test(x)), "refused: the giver reviewing their own gift", self.join("; "));
+} else check(false, "the gift and review checks ran (NOT CHECKED is never a pass)");
 
 // And the repo as it stands passes.
 const live = spawnSync(process.execPath, [path.join(ROOT, "tools", "check.mjs")], { encoding: "utf8" });

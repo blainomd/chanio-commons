@@ -13,6 +13,8 @@ This repo is where anyone can propose a checked answer and read the rules that j
 | Folder | What it holds |
 |---|---|
 | `rules/` | The rules every entry must pass, as code (`check.mjs`), and the shape of the file (`v1.schema.json`). They are a byte-for-byte copy of the rules chanio.com runs; `rules/FROM.txt` says which commit. |
+| `starter/` | Two files the rules read, at the same paths as in chanio.com: `members.mjs` (member keys and signatures) and `common-words.txt` (the 10,000 most common English words, which tell a claim that names its subject from one that does not). Copied with the rules and checked by the same hashes. |
+| `REVIEW.md` | How a gift (one question and its answer, signed by the person who asked) is reviewed, and when it becomes an entry. |
 | `proposals/` | One file per proposed answer, named by its id. Empty until the first proposal is merged. |
 | `examples/` | One worked proposal that passes the rules. |
 | `tools/` | `propose.mjs` writes a proposal from what you read; `check.mjs` is what every pull request must pass; `check.test.mjs` proves the check refuses what it should. |
@@ -49,6 +51,10 @@ account. Nothing in this repo sends anything for you.
 - **Built:** the rules, the check every pull request runs, and the tool that writes a proposal. On a person's Mac, chanio
   already uses the commons file before any bigger AI: a question the file settles stays home, and one that goes out
   carries what is known so far.
+- **Built, and off:** giving. On a Mac, `chanio give` shows one question a bigger AI answered for that person, exactly as
+  it would be signed, keeps it home if it holds a name, a health or crisis word, a key or no public source, and signs it
+  with their member key only on their yes. It waits on that Mac. Nothing is sent, and nothing is accepted: the rules
+  accept a gift only when two reviewers from two groups sign it, and the list of reviewers is empty ([REVIEW.md](REVIEW.md)).
 - **Not yet:** the commons file itself is not published, so chanio.com/commons/v1.json answers 404. Merged proposals do
   not flow into the file yet: the build that will read them is not written. Each new commons file is published only when
   its exact bytes are approved.
@@ -59,3 +65,4 @@ account. Nothing in this repo sends anything for you.
 
 Not chosen yet. This repo stays private until it is. The likely answer is an open-source license for the code and the
 CC0 public-domain dedication for entries, so a checked answer can also be given to Wikidata, which takes only CC0.
+`starter/common-words.txt` keeps its own license, CC BY-SA 4.0, and names its sources in its first lines.

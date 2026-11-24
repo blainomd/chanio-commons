@@ -192,11 +192,62 @@ export const HISTORY_KEYS = ["date", "verdict", "by"];
 export const LANGS = ["en"];
 export const LANG_RE = /^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|\d{3}))?$/;
 export const ENTRY_KEYS = ["id", "claim", "lang", "verdict", "finding", "sources", "checked_by", "checked", "history", "words"];
+// 2026-11-24, passions grow together (Obsidian Vault/40-Technology/chanio-passions-grow-together-decided-2026-11-24.md,
+// build step 1). Two fields an entry may carry, added to v1 without changing an entry that lacks them:
+//   passion    { key, wikidata? }: the passion the entry belongs to. key is lower-case words joined by hyphens
+//              ("reverse-engineering"); wikidata is that topic's item id where one exists ("Q217110"). A device shows an
+//              entry that has one only when the person's own notes mention it (passionMentioned below); the shared part
+//              is public, and which passions a person has never leaves their device.
+//   grew_from  the id of the entry in the same file this one grew on: Tuesday's checked question on a passion is the
+//              entry Wednesday's question on the same passion grows on. It needs a passion, the same as its parent's.
+export const ENTRY_OPTIONAL = ["passion", "grew_from"];
+export const PASSION_KEYS = ["key", "wikidata"];
+export const PASSION_KEY_RE = /^[a-z0-9]{2,}(?:-[a-z0-9]{2,}){0,3}$/;
+export const PASSION_KEY_MAX = 40;
+export const WIKIDATA_RE = /^Q[1-9][0-9]{0,9}$/;
+export const ENTRY_ID_RE = /^c-[0-9a-f]{12}$/;
+const NAME_WORDS = new Set([...FIRST_NAMES, ...SURNAMES]);
+/** Every reason a passion may not stand. */
+export function passionProblems(p, opts = {}) {
+  if (!p || typeof p !== "object" || Array.isArray(p)) return ["a passion that is not an object ({ key, wikidata })"];
+  const out = [];
+  for (const k of Object.keys(p)) if (!PASSION_KEYS.includes(k)) out.push(`a passion field that is not in v1 (${k})`);
+  const key = p.key;
+  if (typeof key !== "string" || !PASSION_KEY_RE.test(key) || key.length < 3 || key.length > PASSION_KEY_MAX || !/[a-z]/.test(key)) out.push(`a passion key that is not lower-case words joined by hyphens (3 to ${PASSION_KEY_MAX} letters, up to four words)`);
+  else {
+    const parts = key.split("-");
+    if (parts.some((w) => NAME_WORDS.has(w))) out.push(`passion key: a name (a first name or surname) — "${parts.find((w) => NAME_WORDS.has(w))}"`);
+    for (const x of textProblems(parts.join(" "), opts)) out.push(`passion key: ${x}`);
+  }
+  if ("wikidata" in p && (typeof p.wikidata !== "string" || !WIKIDATA_RE.test(p.wikidata))) out.push("a passion wikidata id that is not an item id (Q and digits)");
+  return out;
+}
+/** Whether a person's own text mentions a passion: the key's words in order, joined by a space, a hyphen or an
+ *  underscore, in any case, as whole words (a plural s or es on the last one counts), or the passion's Wikidata id.
+ *  The Mac starter (commonsPassionShown) and the notebook (app/lib/commons.ts passionMentioned) run this same rule on
+ *  the person's notes, on their device; tests/commons.test.mjs and tests/phone-door.test.mjs run them on the same samples. */
+export function passionRe(key) {
+  const parts = String(key).split("-").map((w) => w.replace(/[^a-z0-9]/g, "")).filter(Boolean);
+  if (!parts.length) return null;
+  return new RegExp(`(?<![A-Za-z0-9])${parts.join("[\\s_-]+")}(?:e?s)?(?![A-Za-z0-9])`, "i");
+}
+export function passionMentioned(passion, text) {
+  if (!passion || typeof passion.key !== "string") return false;
+  const re = passionRe(passion.key), s = String(text ?? "");
+  if (re && re.test(s)) return true;
+  return typeof passion.wikidata === "string" && WIKIDATA_RE.test(passion.wikidata) && new RegExp(`(?<![A-Za-z0-9])${passion.wikidata}(?![0-9])`).test(s);
+}
 /** Every reason one entry may not be in the commons. Empty means it may. */
 export function entryProblems(e, opts = {}) {
   if (!e || typeof e !== "object" || Array.isArray(e)) return ["an entry that is not an object"];
   const out = [];
-  for (const k of Object.keys(e)) if (!ENTRY_KEYS.includes(k)) out.push(`a field that is not in v1 (${k})`);
+  for (const k of Object.keys(e)) if (!ENTRY_KEYS.includes(k) && !ENTRY_OPTIONAL.includes(k)) out.push(`a field that is not in v1 (${k})`);
+  if ("passion" in e) for (const p of passionProblems(e.passion, opts)) out.push(p);
+  if ("grew_from" in e) {
+    if (typeof e.grew_from !== "string" || !ENTRY_ID_RE.test(e.grew_from)) out.push("a grew_from that is not an entry id (c- and 12 hex)");
+    else if (e.grew_from === e.id) out.push("a grew_from that is the entry's own id");
+    if (!("passion" in e)) out.push("a grew_from with no passion (an entry grows on one about the same passion)");
+  }
   if (typeof e.id !== "string" || !/^c-[0-9a-f]{12}$/.test(e.id)) out.push("no id (c- and 12 hex)");
   else if (typeof e.claim === "string" && Array.isArray(e.sources) && e.sources.every((s) => s && typeof s.url === "string") && e.id !== entryId(e.claim, e.sources.map((s) => s.url))) out.push("an id that is not the hash of its claim and source addresses");
   if (typeof e.claim !== "string" || e.claim.trim().length < 12) out.push("no claim");
@@ -272,6 +323,148 @@ export function commonsProblems(doc, opts = {}) {
     for (const p of entryProblems(e, opts)) out.push(`entry ${i + 1}${e && e.id ? ` (${e.id})` : ""}: ${p}`);
     if (e && e.id) { if (ids.has(e.id)) out.push(`entry ${i + 1}: the id ${e.id} is used twice`); ids.add(e.id); }
   });
+  // grew_from (2026-11-24): the entry it grew on is in this same file, about the same passion, and following grew_from
+  // from any entry ends at one that grew on nothing (no loop).
+  const byId = new Map(doc.entries.filter((e) => e && typeof e.id === "string").map((e) => [e.id, e]));
+  doc.entries.forEach((e, i) => {
+    if (!e || typeof e.grew_from !== "string" || !ENTRY_ID_RE.test(e.grew_from) || e.grew_from === e.id) return;
+    const at = `entry ${i + 1}${e.id ? ` (${e.id})` : ""}`;
+    const parent = byId.get(e.grew_from);
+    if (!parent) { out.push(`${at}: a grew_from that names no entry in this file (${e.grew_from})`); return; }
+    if (!parent.passion || !e.passion || parent.passion.key !== e.passion.key) out.push(`${at}: a grew_from whose entry is about another passion (${e.grew_from})`);
+    const seen = new Set([e.id]);
+    for (let x = parent; x && typeof x.grew_from === "string"; x = byId.get(x.grew_from)) {
+      if (seen.has(x.id)) { out.push(`${at}: a grew_from that loops back to itself`); break; }
+      seen.add(x.id);
+    }
+  });
+  return out;
+}
+
+/* ── Giving, and the review that comes before anything is accepted (2026-11-24) ───────────────────────────────────────
+   Build step 2 of Obsidian Vault/40-Technology/chanio-passions-grow-together-decided-2026-11-24.md, and "giving is by
+   signature, never automatic" in chanio-pooling-commons-decided-2026-11-23.md. A person picks one question and the answer
+   that came back, sees the exact text, and signs it with their member key (starter/members.mjs). Their device runs its
+   own filters first (`chanio give` in the starter); this is the commons' own net, the same rules as an entry:
+
+   gift    { v: 1, type: "gift", q, answer, sources: [{ url }], lang, date, key, sig, passion?, grew_from?, card? }
+           signed by key over members.mjs message("gift", …). card, when the giver has one, is their member card.
+   review  { v: 1, type: "review", gift, verdict, claim, finding, date, key, sig }
+           gift is giftHash(the gift); the reviewer writes the claim as one sentence that stands on its own, and the finding.
+
+   A gift becomes an entry only when (acceptProblems is empty):
+     - the gift passes giftProblems and its signature checks out, and its giver is a member (a card from a root key);
+     - two reviewers listed in REVIEWERS, from two different groups (reviewers who usually disagree: the Community Notes
+       bridging rule in the 9/28 note), each signed a review of this exact gift, agreeing on the verdict and the claim;
+     - no reviewer is the giver, and the entry it makes passes entryProblems.
+   REVIEWERS is empty, so nothing is accepted: who reviews is decided by the members, one member one vote, once there are
+   members (ROOTS in starter/members.mjs is empty too). tests/commons.test.mjs shows the rule accepts a good gift when
+   reviewers are given to it, so "nothing accepted" is the empty list, not a broken rule. */
+export const GIFT_KEYS = ["v", "type", "q", "answer", "sources", "lang", "date", "key", "sig"];
+export const GIFT_OPTIONAL = ["passion", "grew_from", "card"];
+export const REVIEW_KEYS = ["v", "type", "gift", "verdict", "claim", "finding", "date", "key", "sig"];
+export const GIFT_SOURCE_KEYS = ["url"];
+export const MAX_Q = 280;
+export const MAX_ANSWER = 1500;
+/** Who may review, each { key, group }. Empty until the members choose reviewers. */
+export const REVIEWERS = Object.freeze([]);
+async function membersMod() {
+  if (!globalThis.crypto?.subtle) { try { globalThis.crypto = (await import("node:crypto")).webcrypto; } catch { /* below */ } }
+  for (const rel of ["../starter/members.mjs", "./members.mjs"]) { try { return await import(new URL(rel, import.meta.url).href); } catch { /* next */ } }
+  return null;
+}
+/** sha256, hex, of the gift as signed (members.mjs canon, sorted keys, its sig included): what a review names. */
+export async function giftHash(g) {
+  const M = await membersMod();
+  return createHash("sha256").update(M ? M.canon(g) : JSON.stringify(g)).digest("hex");
+}
+/** Every reason a gift's shape and words may not stand (no signature check; giftSigProblems does that). */
+export function giftProblems(g, opts = {}) {
+  if (!g || typeof g !== "object" || Array.isArray(g)) return ["a gift that is not an object"];
+  const out = [];
+  for (const k of Object.keys(g)) if (!GIFT_KEYS.includes(k) && !GIFT_OPTIONAL.includes(k)) out.push(`a gift field that is not in v1 (${k})`);
+  for (const k of GIFT_KEYS) if (!(k in g)) out.push(`a gift with no ${k}`);
+  if (g.v !== 1 || g.type !== "gift") out.push("not a version 1 gift");
+  if (typeof g.q !== "string" || g.q.trim().length < 12) out.push("no question (12 characters or more)");
+  else if (g.q.length > MAX_Q) out.push(`a question over ${MAX_Q} characters`);
+  if (typeof g.answer !== "string" || !g.answer.trim()) out.push("no answer");
+  else if (g.answer.length > MAX_ANSWER) out.push(`an answer over ${MAX_ANSWER} characters`);
+  if (!Array.isArray(g.sources) || !g.sources.length) out.push("no source (a reviewer reads the answer against its sources)");
+  else {
+    if (g.sources.length > MAX_SOURCES) out.push(`more than ${MAX_SOURCES} sources`);
+    // A gift's source is an address only: the Mac that gives it never fetches the page. The day a reviewer reads it is
+    // the entry's "fetched" day (entryFromGift).
+    g.sources.forEach((s) => {
+      if (!s || typeof s !== "object" || Array.isArray(s)) { out.push("a source that is not an object"); return; }
+      for (const k of Object.keys(s)) if (!GIFT_SOURCE_KEYS.includes(k)) out.push(`a gift source field that is not in v1 (${k})`);
+      sourceProblems({ url: s.url, fetched: "2000-01-01" }).forEach((p) => out.push(p));
+    });
+  }
+  if (typeof g.lang !== "string" || !LANG_RE.test(g.lang)) out.push("no language (lang: a BCP 47 tag such as en)");
+  else if (!LANGS.includes(g.lang.split("-")[0])) out.push(`a language these rules cannot read yet (${g.lang})`);
+  if (!realDay(g.date)) out.push("no day it was given (date: YYYY-MM-DD)");
+  if ("passion" in g) for (const p of passionProblems(g.passion, opts)) out.push(p);
+  if ("grew_from" in g) {
+    if (typeof g.grew_from !== "string" || !ENTRY_ID_RE.test(g.grew_from)) out.push("a grew_from that is not an entry id (c- and 12 hex)");
+    if (!("passion" in g)) out.push("a grew_from with no passion (an entry grows on one about the same passion)");
+  }
+  for (const field of ["q", "answer"]) for (const p of textProblems(g[field], opts)) out.push(`${field}: ${p}`);
+  return out;
+}
+/** Every reason the gift's signature or card may not stand. */
+export async function giftSigProblems(g, { roots } = {}) {
+  const M = await membersMod();
+  if (!M) return ["members.mjs could not be loaded, so the signature was not checked"];
+  const out = [];
+  if (!M.keyOk(g?.key)) return ["the gift's key is not a member key"];
+  if (!(await M.verifySig(g.key, M.message("gift", g), g.sig))) out.push("the gift is not signed by its key (or it changed after it was signed)");
+  if (!g.card) out.push("the giver is not a member yet (no member card)");
+  else {
+    if (!M.sameKey(g.card.key, g.key)) out.push("the card is for another key");
+    const c = await M.checkCard(g.card, roots || M.ROOTS);
+    if (!c.ok) out.push(`the giver is not a member yet (${c.why})`);
+  }
+  return out;
+}
+/** The entry an accepted gift becomes: the reviewers' claim and finding, the gift's sources (each fetched on the day of
+ *  the last review, since the reviewers read them), its passion and grew_from. */
+export function entryFromGift(g, reviews) {
+  const r = reviews[reviews.length - 1], day = reviews.map((x) => x.date).sort().pop();
+  const e = { id: entryId(r.claim, g.sources.map((s) => s.url)), claim: r.claim, lang: g.lang, verdict: r.verdict, finding: r.finding, sources: g.sources.map((s) => ({ url: s.url, fetched: day })), checked_by: CHECKERS[1], checked: day, history: [{ date: day, verdict: r.verdict, by: CHECKERS[1] }], words: matchWords(r.claim) };
+  if (g.passion) e.passion = g.passion;
+  if (g.grew_from) e.grew_from = g.grew_from;
+  return e;
+}
+// Words an entry is matched by: the claim's own words that are not everyday English, lower case, up to 12.
+function matchWords(claim) {
+  const ws = (String(claim).toLowerCase().match(/[a-z0-9][a-z0-9-]{2,30}/g) || []).filter((w) => !COMMON_WORDS || !COMMON_WORDS.has(w));
+  return [...new Set(ws)].slice(0, 12);
+}
+/** Every reason a gift is not accepted into the commons with these reviews. Empty means it is. */
+export async function acceptProblems(g, reviews, { reviewers = REVIEWERS, roots, extraNames = [] } = {}) {
+  if (!reviewers.length) return ["nothing is accepted until reviewers exist (REVIEWERS is empty)"];
+  const out = [...giftProblems(g, { extraNames }), ...(await giftSigProblems(g, { roots }))];
+  const M = await membersMod();
+  if (!M) return [...out, "members.mjs could not be loaded"];
+  const h = await giftHash(g);
+  const good = [];
+  for (const [i, r] of (Array.isArray(reviews) ? reviews : []).entries()) {
+    const at = `review ${i + 1}`;
+    if (!r || typeof r !== "object" || Object.keys(r).sort().join() !== [...REVIEW_KEYS].sort().join()) { out.push(`${at}: not a version 1 review`); continue; }
+    if (r.v !== 1 || r.type !== "review") { out.push(`${at}: not a version 1 review`); continue; }
+    if (r.gift !== h) { out.push(`${at}: it reviews another gift, or this one changed after it was reviewed`); continue; }
+    const who = reviewers.find((x) => M.sameKey(x.key, r.key));
+    if (!who) { out.push(`${at}: its key is not one of the reviewers`); continue; }
+    if (M.sameKey(r.key, g.key)) { out.push(`${at}: the giver cannot review their own gift`); continue; }
+    if (!(await M.verifySig(r.key, M.message("review", r), r.sig))) { out.push(`${at}: not signed by its reviewer`); continue; }
+    if (!VERDICTS.includes(r.verdict) || !realDay(r.date)) { out.push(`${at}: no verdict or no day`); continue; }
+    good.push({ r, group: who.group });
+  }
+  const keys = new Set(good.map((x) => x.r.key.pub));
+  if (keys.size < 2) out.push("fewer than two reviewers signed it");
+  else if (new Set(good.map((x) => x.group)).size < 2) out.push("its reviewers are all from one group (it needs two who usually disagree)");
+  if (good.length >= 2 && (new Set(good.map((x) => x.r.verdict)).size > 1 || new Set(good.map((x) => x.r.claim)).size > 1)) out.push("its reviewers do not agree on the verdict and the claim");
+  if (!out.length) for (const p of entryProblems(entryFromGift(g, good.map((x) => x.r)), { extraNames })) out.push(`the entry it makes: ${p}`);
   return out;
 }
 
