@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chanio.com/commons/v1.schema.json",
+  "title": "chanio commons, version 1",
+  "description": "One public file of checked claims that every chanio downloads the same way, with a plain GET and nothing about the person. Matching it to a person's notes runs on their device, and an entry is shown as its own labelled part, never blended into their notes. It never holds a person, a name, health or crisis content, a price, or a venture. commons/check.mjs enforces this shape and the content rules; tests/commons.test.mjs runs it in the stage gate. Decided 2026-11-23 (pull first, give later). An entry is a living knowledge ledger: a claim, its evidence, a verdict and its dated history; its id stays the same when a recheck changes the verdict.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "commons",
+    "version",
+    "status",
+    "built",
+    "count",
+    "entries_sha256",
+    "entries"
+  ],
+  "properties": {
+    "commons": {
+      "const": "chanio commons"
+    },
+    "version": {
+      "const": 1
+    },
+    "status": {
+      "enum": [
+        "staged",
+        "published"
+      ],
+      "description": "staged: built for review, never served. published: approved by a person, its sha256 written in commons/approved.json."
+    },
+    "built": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5000,
+      "description": "The number of entries."
+    },
+    "entries_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "sha256, hex, of JSON.stringify(entries). Every chanio recomputes it and uses no entry when it differs."
+    },
+    "entries": {
+      "type": "array",
+      "maxItems": 5000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "claim",
+          "lang",
+          "verdict",
+          "finding",
+          "sources",
+          "checked_by",
+          "checked",
+          "history",
+          "words"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^c-[0-9a-f]{12}$",
+            "description": "c- and the first 12 hex of sha256 over the trimmed, lower-cased claim and the source urls (each once, sorted), joined by newlines. It names the claim and its evidence, so a new verdict, finding or history row does not change it; later rechecks refer to the entry by it."
+          },
+          "claim": {
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 280,
+            "description": "The claim as it was checked. It must stand on its own."
+          },
+          "lang": {
+            "type": "string",
+            "pattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|\\d{3}))?$",
+            "description": "The language the claim and finding are written in, a BCP 47 tag (en, hi, pt-BR). The gate's name, health and crisis rules are word lists for English, so it accepts only languages those rules can read (commons/check.mjs LANGS, today en); a device prefers entries in its own language and names the language of any other."
+          },
+          "verdict": {
+            "enum": [
+              "CONFIRMED",
+              "PARTLY",
+              "WRONG"
+            ],
+            "description": "The last check's verdict. PARTLY: part of the claim holds, and the finding says which part. WRONG entries stay in, as checked and wrong."
+          },
+          "finding": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400,
+            "description": "What the check found; for PARTLY, which part holds; for WRONG, what the source says instead. Plain text, no web address."
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "url",
+                "fetched"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "pattern": "^https://",
+                  "maxLength": 500,
+                  "description": "A public https page, not a health site and not a venture's own site."
+                },
+                "fetched": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                  "description": "The day the checker fetched the page."
+                }
+              }
+            }
+          },
+          "checked_by": {
+            "enum": [
+              "an AI checker that read the cited source",
+              "a reviewer who read the cited source"
+            ],
+            "description": "The last check's checker: a role, never a name."
+          },
+          "checked": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "The day of the last check (the last history row's date)."
+          },
+          "history": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Every check, oldest first. The seed writes one row; a recheck appends one. The last row's verdict, date and checker are the entry's verdict, checked and checked_by.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "date",
+                "verdict",
+                "by"
+              ],
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "verdict": {
+                  "enum": [
+                    "CONFIRMED",
+                    "PARTLY",
+                    "WRONG"
+                  ]
+                },
+                "by": {
+                  "enum": [
+                    "an AI checker that read the cited source",
+                    "a reviewer who read the cited source"
+                  ],
+                  "description": "A role, never a name."
+                }
+              }
+            }
+          },
+          "words": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 12,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{2,30}$"
+            },
+            "description": "Lower-case words a chanio matches the entry by, against the person's own notes, on their device."
+          }
+        }
+      }
+    }
+  }
+}

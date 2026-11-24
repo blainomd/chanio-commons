@@ -1,0 +1,52 @@
+name: Propose a checked answer
+description: One answer you checked by reading the sources yourself. A maintainer turns it into a proposal file.
+title: "Proposal: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One sentence about a thing, not a person. No health or crisis content, no price. Every source a public https page you read yourself.
+  - type: textarea
+    id: claim
+    attributes:
+      label: The claim
+      description: One sentence that stands on its own, 280 characters at most.
+    validations:
+      required: true
+  - type: dropdown
+    id: verdict
+    attributes:
+      label: Verdict
+      options: [CONFIRMED, PARTLY, WRONG]
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: What the sources say
+      description: In your own words. For PARTLY, say which part holds.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: One per line, the address and the day you read it, like https://example.org/page 2026-11-24 (four at most).
+    validations:
+      required: true
+  - type: input
+    id: words
+    attributes:
+      label: Match words
+      description: Three or more lower-case words a person's notes might use for the same thing, separated by commas.
+    validations:
+      required: true
+  - type: checkboxes
+    id: read
+    attributes:
+      label: Before you send
+      options:
+        - label: I read every source myself, on the day I gave.
+          required: true
+        - label: It names no person and has no health, crisis or price content.
+          required: true

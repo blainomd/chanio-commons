@@ -1,0 +1,28 @@
+{
+  "id": "c-a1e78f31874a",
+  "claim": "All structured data in Wikidata is available under the Creative Commons CC0 license, so anyone may reuse it without asking.",
+  "lang": "en",
+  "verdict": "CONFIRMED",
+  "finding": "The licensing page says all structured data in the main, property, lexeme and entity-schema namespaces is under CC0; text in the other namespaces is under CC BY-SA.",
+  "sources": [
+    {
+      "url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
+      "fetched": "2026-11-24"
+    }
+  ],
+  "checked_by": "a reviewer who read the cited source",
+  "checked": "2026-11-24",
+  "history": [
+    {
+      "date": "2026-11-24",
+      "verdict": "CONFIRMED",
+      "by": "a reviewer who read the cited source"
+    }
+  ],
+  "words": [
+    "wikidata",
+    "cc0",
+    "license",
+    "structured-data"
+  ]
+}

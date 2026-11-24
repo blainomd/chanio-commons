@@ -1,0 +1,19 @@
+name: check
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: The check refuses what it should
+        run: node tools/check.test.mjs
+      - name: Every proposal stands, and the rules are the recorded copy
+        run: node tools/check.mjs
