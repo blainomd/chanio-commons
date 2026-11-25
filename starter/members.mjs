@@ -14,11 +14,15 @@
 //   and carries the new member's own signed request, so it binds the one key whose holder asked for it.
 // - No name is in any of it: a key, a day, signatures. A name, if a person ever chooses one, lives in a separate credit
 //   record (the local entry shape, build step 3).
-// - ROOTS is empty, so nobody is a member yet. The first root key is Blaine's call (90-System/BLAINE-QUEUE.md).
+// - ROOTS holds one root key: Blaine's, made in his Mac's Secure Enclave on 2026-11-25 (m-80d195b9760d0ef0; only its public
+//   half is here). A root is where vouching starts; it is a key, not a membership. Another root is his call
+//   (90-System/BLAINE-QUEUE.md). Nobody is vouched from it yet that anyone could know of: a vouch is a link no server sees.
 
 export const V = 1;
 export const NS = "chanio-member"; // the SSHSIG namespace, and the first word of every signed message
-export const ROOTS = Object.freeze([]);
+export const ROOTS = Object.freeze([
+  Object.freeze({ alg: "sk-p256", pub: "BBj8rKlamqdvAMoV90bGi6ZXmJvJJLeKoxCrK_v3U-fnR5Ib6EpIpmDbTtnjVC3vbxFz_NmAXcHfksl4c_bDJ8g", app: "ssh:" }), // m-80d195b9760d0ef0
+]);
 export const MAX_CHAIN = 16;
 const SK_TYPE = "sk-ecdsa-sha2-nistp256@openssh.com";
 const DAY = /^\d{4}-\d{2}-\d{2}$/;

@@ -358,7 +358,7 @@ export function commonsProblems(doc, opts = {}) {
        bridging rule in the 9/28 note), each signed a review of this exact gift, agreeing on the verdict and the claim;
      - no reviewer is the giver, and the entry it makes passes entryProblems.
    REVIEWERS is empty, so nothing is accepted: who reviews is decided by the members, one member one vote, once there are
-   members (ROOTS in starter/members.mjs is empty too). tests/commons.test.mjs shows the rule accepts a good gift when
+   members (ROOTS in starter/members.mjs holds one root key, and no member is vouched from it yet). tests/commons.test.mjs shows the rule accepts a good gift when
    reviewers are given to it, so "nothing accepted" is the empty list, not a broken rule. */
 export const GIFT_KEYS = ["v", "type", "q", "answer", "sources", "lang", "date", "key", "sig"];
 export const GIFT_OPTIONAL = ["passion", "grew_from", "card"];

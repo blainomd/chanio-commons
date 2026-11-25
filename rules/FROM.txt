@@ -5,3 +5,5 @@ SHA256SUMS records all four; node tools/check.mjs --against <a chanio.com checko
 Still the same bytes at e6f9e26 (2026-11-24), where chanio.com published public/commons/v1.json, now published/v1.json here.
 Re-copied from blainomd/chanio.com at 4811eb9 on 2026-11-25 (origin/main): commons/check.mjs, with the not_paid_work word
 on gifts and proposals (attestProblems, proposalProblems, proposalEntry). The other three files are unchanged.
+Re-copied from blainomd/chanio.com at 56b8bc1 on 2026-11-25 (origin/main, starter 0.23.33): starter/members.mjs, whose ROOTS
+now holds the first root key (m-80d195b9760d0ef0), and commons/check.mjs. The schema and the word list are unchanged.
