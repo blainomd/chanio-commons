@@ -71,10 +71,15 @@ const SURNAME_RE = new RegExp(String.raw`\b(?:${[...new Set(SURNAMES)].filter((w
 export const DEICTIC_RE = /^(?:it|its|it's|this|that|these|those|they|them|their|his|her|he|she|we|our|you|your|one person|someone|the (?:\w+ )?(?:model|study|paper|episode|drop|post|author|authors|company|firm|issue|report|book|video|talk|transcript|interview|speaker|host|guest|article|piece|thread|tweet|site|app|tool|product|agent|list|figure|number|claim|same|page|program|service|vendor|platform|matrix|router|team|matrix's))\b|\b(?:today|tonight|yesterday|tomorrow|this (?:week|month|morning)|last (?:week|night)|next week|right now)\b/i;
 // A claim must name what it is about: a capitalised word or an acronym after its first word, or a first word that is not
 // common English (starter/common-words.txt, the first 10,000). "Up to 15 active tasks at once" says nothing alone.
+// The list sits in starter/ in the repo, and beside this file inside the starter, which ships it as commons-check.mjs.
+function commonWordsText() {
+  for (const rel of ["../starter/common-words.txt", "./common-words.txt"]) { try { return fs.readFileSync(new URL(rel, import.meta.url), "utf8"); } catch { /* next */ } }
+  throw new Error("no common-words.txt");
+}
 export const COMMON_WORDS = (() => {
   try {
     const set = new Set(); let i = 0;
-    for (const l of fs.readFileSync(new URL("../starter/common-words.txt", import.meta.url), "utf8").split("\n")) { const w = l.trim(); if (!w || w.startsWith("#")) continue; if (i++ >= 10000) break; set.add(w.toLowerCase()); }
+    for (const l of commonWordsText().split("\n")) { const w = l.trim(); if (!w || w.startsWith("#")) continue; if (i++ >= 10000) break; set.add(w.toLowerCase()); }
     return set.size > 5000 ? set : null;
   } catch { return null; }
 })();
@@ -200,7 +205,11 @@ export const ENTRY_KEYS = ["id", "claim", "lang", "verdict", "finding", "sources
 //              is public, and which passions a person has never leaves their device.
 //   grew_from  the id of the entry in the same file this one grew on: Tuesday's checked question on a passion is the
 //              entry Wednesday's question on the same passion grows on. It needs a passion, the same as its parent's.
-export const ENTRY_OPTIONAL = ["passion", "grew_from"];
+export const ENTRY_OPTIONAL = ["passion", "grew_from", "gift"];
+/* gift (commons v2, 2026-11-25): the sha256 of the gift an entry was made from (giftHash). Only the giver, who keeps the
+   gift on their own Mac, and its reviewers can tie it to a key, so the entry names no one; it is how the giver's device
+   knows a thank for this entry is theirs. */
+export const GIFT_HASH_RE = /^[0-9a-f]{64}$/;
 export const PASSION_KEYS = ["key", "wikidata"];
 export const PASSION_KEY_RE = /^[a-z0-9]{2,}(?:-[a-z0-9]{2,}){0,3}$/;
 export const PASSION_KEY_MAX = 40;
@@ -248,6 +257,7 @@ export function entryProblems(e, opts = {}) {
     else if (e.grew_from === e.id) out.push("a grew_from that is the entry's own id");
     if (!("passion" in e)) out.push("a grew_from with no passion (an entry grows on one about the same passion)");
   }
+  if ("gift" in e && (typeof e.gift !== "string" || !GIFT_HASH_RE.test(e.gift))) out.push("a gift that is not the sha256 of the gift it was made from (64 hex)");
   if (typeof e.id !== "string" || !/^c-[0-9a-f]{12}$/.test(e.id)) out.push("no id (c- and 12 hex)");
   else if (typeof e.claim === "string" && Array.isArray(e.sources) && e.sources.every((s) => s && typeof s.url === "string") && e.id !== entryId(e.claim, e.sources.map((s) => s.url))) out.push("an id that is not the hash of its claim and source addresses");
   if (typeof e.claim !== "string" || e.claim.trim().length < 12) out.push("no claim");
@@ -457,11 +467,12 @@ export async function giftSigProblems(g, { roots } = {}) {
 }
 /** The entry an accepted gift becomes: the reviewers' claim and finding, the gift's sources (each fetched on the day of
  *  the last review, since the reviewers read them), its passion and grew_from. */
-export function entryFromGift(g, reviews) {
+export function entryFromGift(g, reviews, hash) {
   const r = reviews[reviews.length - 1], day = reviews.map((x) => x.date).sort().pop();
   const e = { id: entryId(r.claim, g.sources.map((s) => s.url)), claim: r.claim, lang: g.lang, verdict: r.verdict, finding: r.finding, sources: g.sources.map((s) => ({ url: s.url, fetched: day })), checked_by: CHECKERS[1], checked: day, history: [{ date: day, verdict: r.verdict, by: CHECKERS[1] }], words: matchWords(r.claim) };
   if (g.passion) e.passion = g.passion;
   if (g.grew_from) e.grew_from = g.grew_from;
+  if (typeof hash === "string" && GIFT_HASH_RE.test(hash)) e.gift = hash;
   return e;
 }
 // Words an entry is matched by: the claim's own words that are not everyday English, lower case, up to 12.
@@ -493,13 +504,228 @@ export async function acceptProblems(g, reviews, { reviewers = REVIEWERS, roots,
   if (keys.size < 2) out.push("fewer than two reviewers signed it");
   else if (new Set(good.map((x) => x.group)).size < 2) out.push("its reviewers are all from one group (it needs two who usually disagree)");
   if (good.length >= 2 && (new Set(good.map((x) => x.r.verdict)).size > 1 || new Set(good.map((x) => x.r.claim)).size > 1)) out.push("its reviewers do not agree on the verdict and the claim");
-  if (!out.length) for (const p of entryProblems(entryFromGift(g, good.map((x) => x.r)), { extraNames })) out.push(`the entry it makes: ${p}`);
+  if (!out.length) for (const p of entryProblems(entryFromGift(g, good.map((x) => x.r), h), { extraNames })) out.push(`the entry it makes: ${p}`);
+  return out;
+}
+
+/* ── The open list: asks and thanks (commons v2, decided 2026-11-25) ───────────────────────────────────────────────────
+   Obsidian Vault/40-Technology/chanio-network-of-people-doing-good-decided-2026-11-25.md: people read public things for
+   each other, each person's own memory does the matching on their own device, and they thank each other privately.
+   - An ask is one public link a member wants a checked read of. Posting it says only that this key wants that link read.
+   - A thank is one member's thank-you for one entry made from a person's gift. Only the giver's own Mac can tell the
+     entry is theirs (the entry's gift is a hash only the giver and its reviewers can tie to a key), and it shows them
+     the days they were thanked, never a total and never next to a name.
+   Both are signed by a vouched member key (a card that chains to a root key), a few a day per key, and stay on the list
+   for OPEN_DAYS. The list is one public file (commons/open.json), every chanio pulls it whole with the commons file,
+   and the matching happens on each Mac, so no server learns who matched what. It holds links and keys only.
+   A link stays home for the same reasons a source does (health, a social post, a venture's own site, not public), and
+   also when it has a ? or # part (either can carry a personal token or a tracking id), a long code, a private share or
+   a short link, a crisis or medicine word, or a price word in its address. A read of any of those could not become an
+   entry, so the ask could never be answered. A link whose address names someone stays home unless the asker says it
+   may go (name_in_link: true): that one is the asker's call alone. */
+export const ASK_KEYS = ["v", "type", "url", "date", "key", "card", "sig"];
+export const ASK_OPTIONAL = ["name_in_link"];
+export const THANK_KEYS = ["v", "type", "entry", "date", "key", "card", "sig"];
+export const OPEN_KEYS = ["commons", "version", "built", "asks", "thanks"];
+export const ASKS_PER_DAY = 3;
+export const THANKS_PER_DAY = 10;
+export const OPEN_DAYS = 30;
+export const MAX_ASKS = 5000;
+export const MAX_THANKS = 20000;
+export const MAX_LINK = 500;
+/* The medicines the starter keeps home (starter/chanio.mjs DRUG_RE, byte for byte; tests/commons.test.mjs holds them
+   equal). A medicine's name in a link says something about the person who asks. */
+export const DRUG_RE = new RegExp(String.raw`\b(?:lithium|insulin|metformin|sertraline|zoloft|lexapro|escitalopram|citalopram|celexa|prozac|fluoxetine|paxil|paroxetine|wellbutrin|bupropion|effexor|venlafaxine|cymbalta|duloxetine|xanax|alprazolam|klonopin|clonazepam|valium|diazepam|ativan|lorazepam|adderall|ritalin|methylphenidate|vyvanse|concerta|strattera|seroquel|quetiapine|abilify|aripiprazole|risperdal|risperidone|zyprexa|olanzapine|lamictal|lamotrigine|depakote|valproate|gabapentin|neurontin|lyrica|pregabalin|tramadol|oxycodone|oxycontin|percocet|vicodin|hydrocodone|codeine|morphine|fentanyl|suboxone|buprenorphine|methadone|naloxone|narcan|ambien|zolpidem|trazodone|ibuprofen|advil|motrin|tylenol|acetaminophen|paracetamol|naproxen|aleve|prednisone|warfarin|coumadin|eliquis|apixaban|xarelto|rivaroxaban|plavix|clopidogrel|levothyroxine|synthroid|donepezil|aricept|memantine|namenda|ozempic|wegovy|semaglutide|mounjaro|zepbound|tirzepatide|jardiance|lisinopril|atorvastatin|lipitor|crestor|rosuvastatin|simvastatin|amlodipine|norvasc|metoprolol|losartan|hydrochlorothiazide|furosemide|lasix|omeprazole|prilosec|pantoprazole|albuterol|inhalers?|epipen|amoxicillin|azithromycin|doxycycline|ciprofloxacin|viagra|cialis|sildenafil|tadalafil|antibiotics?|antipsychotics?|benzodiazepines?|opioids?|ssris?|statins?|beta[- ]blockers?|birth control|contracepti\w*|methotrexate|trexall|humira|adalimumab|enbrel|etanercept|remicade|infliximab|prednisolone|hydroxychloroquine|plaquenil|allopurinol|colchicine|tamoxifen|letrozole|anastrozole|keytruda|herceptin|naltrexone|vivitrol|antabuse|disulfiram|acamprosate|chantix|varenicline|clozapine|haloperidol|buspirone|propranolol|hydroxyzine|melatonin|truvada)\b|\b[a-z]{3,}(?:pril|olol|statin|formin|sartan|azepam|azolam|oxetine|azole|mycin|cillin|cycline|floxacin|tidine|prazole|triptan|gliptin|glutide|gliflozin|dronate|codone|morphone|trexate|zumab|ximab)\b`, "i");
+export const SHARE_HOSTS = /(?:^|\.)(?:docs\.google\.com|drive\.google\.com|sites\.google\.com|mail\.google\.com|meet\.google\.com|calendar\.google\.com|photos\.google\.com|photos\.app\.goo\.gl|dropbox\.com|dropboxusercontent\.com|box\.com|onedrive\.live\.com|1drv\.ms|sharepoint\.com|icloud\.com|wetransfer\.com|we\.tl|notion\.site|calendly\.com|zoom\.us|teams\.microsoft\.com|outlook\.live\.com|outlook\.office\.com|chatgpt\.com|chat\.openai\.com|claude\.ai|gemini\.google\.com|g\.co|loom\.com|figma\.com|airtable\.com|typeform\.com|forms\.gle|docsend\.com)$/i;
+export const SHORT_HOSTS = /(?:^|\.)(?:bit\.ly|tinyurl\.com|t\.co|goo\.gl|ow\.ly|buff\.ly|is\.gd|rebrand\.ly|lnkd\.in|t\.ly|tiny\.cc|cutt\.ly|shorturl\.at|rb\.gy|s\.id|trib\.al|dlvr\.it|amzn\.to|youtu\.be)$/i;
+const NOT_PUBLIC_HOST_RE = /^(?:localhost|127\.|10\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.|0\.|169\.254\.|\[)|\.(?:local|internal|test|example|localhost|lan|home|corp|onion)$|^example\.(?:com|org|net)$|^\d+\.\d+\.\d+\.\d+$/i;
+const SURNAME_ONLY = new Set(SURNAMES.filter((w) => !["memex", "sam", "elon", "dario", "satya", "sundar", "jensen"].includes(w)));
+/** A link's plain form: https, the host in lower case without www., the path without a / at the end, nothing after it.
+ *  null when it is not an https address. */
+export function plainLink(s) {
+  let u; try { u = new URL(String(s)); } catch { return null; }
+  if (u.protocol !== "https:") return null;
+  return `https://${u.hostname.toLowerCase().replace(/^www\./, "")}${u.pathname.replace(/\/+$/, "")}`;
+}
+const TRACKING_PARAM_RE = /^(?:utm_[a-z]+|fbclid|gclid|dclid|msclkid|mc_[a-z]+|igshid|ref|ref_src|ref_url|source|share|s|cmpid|smid|sr_share)$/i;
+/** The key a link is matched by on a device: its plain form, after a # part and tracking parameters are dropped. A link
+ *  with any other ? part is a different page, or a personal one, so it has no key and matches nothing. */
+export function linkKey(s) {
+  let u; try { u = new URL(String(s).replace(/[).,;:!?'"\]>]+$/, "")); } catch { return null; }
+  if (u.protocol !== "https:" || u.username || u.password || u.port) return null;
+  for (const k of u.searchParams.keys()) if (!TRACKING_PARAM_RE.test(k)) return null;
+  return plainLink(u.href);
+}
+/** The words of a link's address (its path), decoded, with - _ / . + read as spaces. */
+export function linkWords(url) {
+  let p = ""; try { p = new URL(String(url)).pathname; } catch { return ""; }
+  try { p = decodeURIComponent(p); } catch { /* as written */ }
+  return p.replace(/[-_/.+]+/g, " ").trim();
+}
+/** A name in a link's words: a surname from the lists that is not an everyday word, a first name followed by a word that
+ *  is not everyday, or one of extraNames (the device passes the person's own name and the names their notes are filed
+ *  under). null when there is none. */
+export function linkNameHit(url, { extraNames = [] } = {}) {
+  const ws = linkWords(url).toLowerCase().split(/[^a-z]+/).filter(Boolean);
+  const extra = new Set(extraNames.map((x) => String(x).toLowerCase()).filter((x) => x.length >= 3));
+  const everyday = (w) => !!COMMON_WORDS && COMMON_WORDS.has(w);
+  for (let i = 0; i < ws.length; i++) {
+    const w = ws[i], nx = ws[i + 1];
+    if (extra.has(w)) return w;
+    if (SURNAME_ONLY.has(w) && !everyday(w)) return w;
+    if (FIRST_SET.has(w) && nx && nx.length >= 3 && !everyday(nx)) return `${w} ${nx}`;
+  }
+  return null;
+}
+/** Every reason a link may not be asked for. nameOk is the asker's word that a name in it may go. Empty means none. */
+export function askUrlProblems(url, { nameOk = false, extraNames = [] } = {}) {
+  if (typeof url !== "string" || !url) return ["no link"];
+  const out = [];
+  if (url.length > MAX_LINK) out.push(`a link over ${MAX_LINK} characters`);
+  if (/[`'"<>\\^{}|\s]/.test(url)) out.push("a link with a stray character in it");
+  if (url.includes("?")) out.push("a link with a ? part (it can carry a personal token or a tracking id)");
+  if (url.includes("#")) out.push("a link with a # part (it can carry a personal token)");
+  let u = null; try { u = new URL(url); } catch { /* below */ }
+  if (!u || u.protocol !== "https:") return [...out, "a link that is not an https address"];
+  const host = u.hostname.toLowerCase();
+  if (u.username || u.password) out.push("a link with a login in it");
+  if (u.port) out.push("a link with a port in it");
+  if (!host.includes(".") || NOT_PUBLIC_HOST_RE.test(host)) out.push("a link that is not a public page");
+  const plain = plainLink(url);
+  if (!out.length && plain !== url) out.push(`a link not in its plain form (${plain}: the host in lower case with no www., no / at the end)`);
+  if (HEALTH_HOSTS.test(host)) out.push(`a link on a health site — ${host} (chanio is memory, never health)`);
+  if (SOCIAL_HOSTS.test(host)) out.push(`a link to a social-media post or profile (its address names the author) — ${host}`);
+  if (VENTURE_RE.test(host)) out.push(`a link to a venture's own site — ${host}`);
+  if (SHARE_HOSTS.test(host)) out.push(`a link to a private file, chat, form or meeting — ${host} (whoever holds it can open it)`);
+  if (SHORT_HOSTS.test(host)) out.push(`a short link that hides where it goes — ${host}`);
+  const words = linkWords(url);
+  let m;
+  if ((m = words.match(CRISIS_RE))) out.push(`a link whose address is about a crisis — "${m[0]}"`);
+  if ((m = words.match(HEALTH_RE) || words.match(HEALTH_ACRONYM_RE))) out.push(`a link whose address is about health — "${m[0]}"`);
+  if ((m = words.match(DRUG_RE))) out.push(`a link whose address names a medicine — "${m[0]}"`);
+  if ((m = words.match(PRICE_RE))) out.push(`a link whose address is about prices — "${m[0]}" (the commons keeps no price)`);
+  let raw = u.pathname; try { raw = decodeURIComponent(raw); } catch { /* as written */ }
+  if (SECRET_RE.test(raw) || EMAIL_RE.test(raw) || PHONE_RE.test(words)) out.push("a link with a code, an email address or a phone number in it");
+  else if (u.pathname.split(/[-_/.~]+/).some((t) => t.length >= 16 && /[a-z]/i.test(t) && /\d/.test(t))) out.push("a link with a long code in it (it may open something private)");
+  const nm = linkNameHit(url, { extraNames });
+  if (nm && !nameOk) out.push(`a link whose address names someone ("${nm}"): it stays home unless the asker says it may go`);
+  return out;
+}
+/** Every reason an ask's shape and link may not stand (no signature check; openSigProblems does that). */
+export function askProblems(a, opts = {}) {
+  if (!a || typeof a !== "object" || Array.isArray(a)) return ["an ask that is not an object"];
+  const out = [];
+  for (const k of Object.keys(a)) if (!ASK_KEYS.includes(k) && !ASK_OPTIONAL.includes(k)) out.push(`an ask field that is not in v1 (${k})`);
+  for (const k of ASK_KEYS) if (!(k in a)) out.push(`an ask with no ${k}`);
+  if (a.v !== 1 || a.type !== "ask") out.push("not a version 1 ask");
+  if ("name_in_link" in a && a.name_in_link !== true) out.push("a name_in_link that is not true (left out, or true when the asker said a name in the link may go)");
+  if (!realDay(a.date)) out.push("no day it was asked (date: YYYY-MM-DD)");
+  for (const p of askUrlProblems(a.url, { ...opts, nameOk: a.name_in_link === true })) out.push(p);
+  return out;
+}
+/** Every reason a thank's shape may not stand (no signature check). */
+export function thankProblems(t) {
+  if (!t || typeof t !== "object" || Array.isArray(t)) return ["a thank that is not an object"];
+  const out = [];
+  for (const k of Object.keys(t)) if (!THANK_KEYS.includes(k)) out.push(`a thank field that is not in v1 (${k})`);
+  for (const k of THANK_KEYS) if (!(k in t)) out.push(`a thank with no ${k}`);
+  if (t.v !== 1 || t.type !== "thank") out.push("not a version 1 thank");
+  if (typeof t.entry !== "string" || !ENTRY_ID_RE.test(t.entry)) out.push("a thank for no entry (entry: c- and 12 hex)");
+  if (!realDay(t.date)) out.push("no day it was given (date: YYYY-MM-DD)");
+  return out;
+}
+/** Every reason an ask's or a thank's signature or card may not stand: signed by its key, and its key vouched. */
+export async function openSigProblems(x, { roots } = {}) {
+  const M = await membersMod();
+  if (!M) return ["members.mjs could not be loaded, so the signature was not checked"];
+  const type = x?.type === "thank" ? "thank" : "ask", out = [];
+  if (!M.keyOk(x?.key)) return [`the ${type}'s key is not a member key`];
+  if (typeof x.sig !== "string" || !(await M.verifySig(x.key, M.message(type, x), x.sig))) out.push(`the ${type} is not signed by its key (or it changed after it was signed)`);
+  if (!x.card) out.push("its key is not vouched (no member card): only a vouched key can ask or thank");
+  else {
+    if (!M.sameKey(x.card.key, x.key)) out.push("the card is for another key");
+    const c = await M.checkCard(x.card, roots || M.ROOTS);
+    if (!c.ok) out.push(`its key is not vouched (${c.why})`);
+  }
+  return out;
+}
+const keyTag = (k) => (k && typeof k === "object" ? `${k.alg}:${k.pub}:${k.app || ""}` : "");
+const dayMinus = (day, n) => new Date(Date.parse(`${day}T00:00:00Z`) - n * 86400000).toISOString().slice(0, 10);
+/** Each record's problems on an open list, in file order, the list-wide rules included: a day inside the OPEN_DAYS
+ *  before built and not after it, at most ASKS_PER_DAY asks and THANKS_PER_DAY thanks from one key on one day, one ask
+ *  per key per link and one thank per key per entry. { asks: [[problems]], thanks: [[problems]] }. */
+export async function openRecordProblems(doc, { roots, extraNames = [] } = {}) {
+  const built = realDay(doc?.built) ? doc.built : null, from = built ? dayMinus(built, OPEN_DAYS - 1) : null;
+  const walk = async (list, kind) => {
+    const perDay = new Map(), once = new Set(), res = [];
+    for (const x of Array.isArray(list) ? list : []) {
+      const p = kind === "ask" ? askProblems(x, { extraNames }) : thankProblems(x);
+      if (x && typeof x === "object" && x.type === kind) for (const s of await openSigProblems(x, { roots })) p.push(s);
+      if (built && realDay(x?.date) && (x.date > built || x.date < from)) p.push(`${kind === "ask" ? "an ask" : "a thank"} dated outside the ${OPEN_DAYS} days before the list was built`);
+      const k = keyTag(x?.key), what = kind === "ask" ? x?.url : x?.entry;
+      if (!p.length) {
+        const d = `${k} ${x.date}`, n = (perDay.get(d) || 0) + 1;
+        if (n > (kind === "ask" ? ASKS_PER_DAY : THANKS_PER_DAY)) p.push(`more than ${kind === "ask" ? `${ASKS_PER_DAY} asks` : `${THANKS_PER_DAY} thanks`} from one key on one day`);
+        else if (once.has(`${k} ${what}`)) p.push(kind === "ask" ? "the same link asked twice by one key" : "the same entry thanked twice by one key");
+        else { perDay.set(d, n); once.add(`${k} ${what}`); }
+      }
+      res.push(p);
+    }
+    return res;
+  };
+  return { asks: await walk(doc?.asks, "ask"), thanks: await walk(doc?.thanks, "thank") };
+}
+/** Every reason an open list may not be published. Empty means none. */
+export async function openListProblems(doc, { roots, today = new Date().toISOString().slice(0, 10) } = {}) {
+  if (!doc || typeof doc !== "object" || Array.isArray(doc)) return ["an open list that is not an object"];
+  const out = [];
+  if (Object.keys(doc).sort().join() !== [...OPEN_KEYS].sort().join()) out.push(`an open list whose fields are not ${OPEN_KEYS.join(", ")}`);
+  if (doc.commons !== "chanio open list" || doc.version !== 1) out.push('not a version 1 open list (commons: "chanio open list", version: 1)');
+  if (!realDay(doc.built)) out.push("no day it was built (built: YYYY-MM-DD)");
+  else if (doc.built > today) out.push("built on a day that has not come yet");
+  if (!Array.isArray(doc.asks) || !Array.isArray(doc.thanks)) return [...out, "no asks or no thanks (each a list, empty when there are none)"];
+  if (doc.asks.length > MAX_ASKS) out.push(`more than ${MAX_ASKS} asks`);
+  if (doc.thanks.length > MAX_THANKS) out.push(`more than ${MAX_THANKS} thanks`);
+  const r = await openRecordProblems(doc, { roots });
+  r.asks.forEach((ps, i) => ps.forEach((p) => out.push(`ask ${i + 1}: ${p}`)));
+  r.thanks.forEach((ps, i) => ps.forEach((p) => out.push(`thank ${i + 1}: ${p}`)));
   return out;
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === fs.realpathSync(process.argv[1])) {
+  if (process.argv[2] === "open-add") {
+    // node commons/check.mjs open-add <open.json> <ask-or-thank.json>...: adds each signed record that stands, drops the
+    // ones older than OPEN_DAYS, sets built to today, and writes the list only when the whole list passes.
+    const [f, ...recs] = process.argv.slice(3);
+    if (!f || !recs.length) { console.error("usage: node commons/check.mjs open-add <open.json> <record.json>..."); process.exit(2); }
+    const day = new Date().toISOString().slice(0, 10);
+    let d = { commons: "chanio open list", version: 1, built: day, asks: [], thanks: [] };
+    if (fs.existsSync(f)) { try { d = JSON.parse(fs.readFileSync(f, "utf8")); } catch (e) { console.log(`FAIL ${f}: ${e.message}`); process.exit(1); } }
+    d.built = day;
+    const from = dayMinus(day, OPEN_DAYS - 1);
+    d.asks = d.asks.filter((x) => x.date >= from); d.thanks = d.thanks.filter((x) => x.date >= from);
+    for (const r of recs) {
+      let x; try { x = JSON.parse(fs.readFileSync(r, "utf8")); } catch (e) { console.log(`FAIL ${r}: ${e.message}`); process.exit(1); }
+      (x?.type === "thank" ? d.thanks : d.asks).push(x);
+    }
+    const ps = await openListProblems(d);
+    for (const p of ps.slice(0, 200)) console.log(`FAIL ${p}`);
+    if (ps.length) { console.log(`${ps.length} problem(s): ${f} was not written`); process.exit(1); }
+    fs.writeFileSync(f, JSON.stringify(d, null, 2) + "\n");
+    console.log(`ok ${f}: ${d.asks.length} asks, ${d.thanks.length} thanks, built ${d.built}`);
+    process.exit(0);
+  }
+  if (process.argv[2] === "open") {
+    const f = process.argv[3];
+    if (!f) { console.error("usage: node commons/check.mjs open <open.json>"); process.exit(2); }
+    let d; try { d = JSON.parse(fs.readFileSync(f, "utf8")); } catch (e) { console.log(`FAIL ${f}: ${e.message}`); process.exit(1); }
+    const ps = await openListProblems(d);
+    for (const p of ps.slice(0, 200)) console.log(`FAIL ${p}`);
+    console.log(ps.length ? `${ps.length} problem(s) in ${f}` : `ok ${f}: ${d.asks.length} asks, ${d.thanks.length} thanks, built ${d.built}`);
+    process.exit(ps.length ? 1 : 0);
+  }
   const file = process.argv[2];
-  if (!file) { console.error("usage: node commons/check.mjs <file.json>"); process.exit(2); }
+  if (!file) { console.error("usage: node commons/check.mjs <file.json>  ·  node commons/check.mjs open <open.json>"); process.exit(2); }
   let doc;
   try { doc = JSON.parse(fs.readFileSync(file, "utf8")); } catch (e) { console.log(`FAIL ${file}: ${e.message}`); process.exit(1); }
   const problems = commonsProblems(doc);

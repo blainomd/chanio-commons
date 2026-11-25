@@ -7,3 +7,6 @@ Re-copied from blainomd/chanio.com at 4811eb9 on 2026-11-25 (origin/main): commo
 on gifts and proposals (attestProblems, proposalProblems, proposalEntry). The other three files are unchanged.
 Re-copied from blainomd/chanio.com at 56b8bc1 on 2026-11-25 (origin/main, starter 0.23.33): starter/members.mjs, whose ROOTS
 now holds the first root key (m-80d195b9760d0ef0), and commons/check.mjs. The schema and the word list are unchanged.
+Re-copied from blainomd/chanio.com at d8a57c4 on 2026-11-25 (origin/main, starter 0.23.37): commons/check.mjs, with the
+open list (the ask and thank kinds, openListProblems, and node rules/check.mjs open|open-add), and commons/v1.schema.json,
+which names an entry's optional gift (the sha256 of the gift it came from). members.mjs and the word list are unchanged.

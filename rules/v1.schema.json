@@ -200,6 +200,11 @@
             "type": "string",
             "pattern": "^c-[0-9a-f]{12}$",
             "description": "Optional (added 2026-11-24). The id of the entry in this same file this one grew on, about the same passion: the checked question a later question on that passion grew on top of. Never the entry's own id, and following it never loops."
+          },
+          "gift": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "description": "Optional (added 2026-11-25). The sha256 of the signed gift this entry was made from. Only the giver, who keeps the gift on their own Mac, and its reviewers can tie it to a key, so the entry names no one; it lets the giver's own device see the days someone thanked them for it."
           }
         }
       }
