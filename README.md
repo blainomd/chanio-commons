@@ -59,8 +59,11 @@ account. Nothing in this repo sends anything for you.
 - **Published (2026-11-24):** the first commons file, at chanio.com/commons/v1.json: 139 checked answers (119 confirmed,
   8 in part, 12 wrong), approved by its exact sha256 (543666e1…, in `published/SHA256SUMS`). `published/v1.json` is the
   same bytes.
-- **Not yet:** merged proposals do not flow into the file yet: the build that will read them is not written. Each new
-  commons file is published only when its exact bytes are approved.
+- **Built (2026-11-25):** the build that reads merged proposals, chanio.com's `commons/next.mjs`. It reads
+  `proposals/*.json` from `main` with git, never a working folder or an open pull request. It also reads gifts that two
+  reviewers from two groups accepted. Every one is checked again, its `not_paid_work` word included, and the result is a
+  staged file that is never served. A new commons file is published only when its exact bytes are approved. No proposal
+  has been merged and no reviewer exists yet, so nothing is staged.
 - **Planned, with no date:** chanio is meant to belong to the people who use it, one person, one vote, and an AI never
   gets a vote. None of that exists yet: no co-op, nothing to join.
 

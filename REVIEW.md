@@ -8,8 +8,12 @@ thing in words, and where they differ, the code is the rule.
 ## What a gift is
 
 ```
-{ v: 1, type: "gift", q, answer, sources: [{ url }], lang, date, key, sig, passion?, grew_from?, card? }
+{ v: 1, type: "gift", q, answer, sources: [{ url }], lang, date, key, sig, not_paid_work: true, passion?, grew_from?, card? }
 ```
+
+- `not_paid_work: true` is the giver's word that the question and answer were not made as paid work for anyone, and
+  not under a promise to keep them confidential. It sits inside the signed gift, so it cannot be added later. A gift
+  without it, or with anything but `true`, is refused whatever the reviewers say (since 2026-11-25).
 
 - `q` and `answer` are plain text. The giver's own Mac kept the gift home if it held a name, a health or crisis word, a
   key, an email or a phone number, or had no public source (`chanio give`). The same text rules run here again.

@@ -24,5 +24,6 @@
     "cc0",
     "license",
     "structured-data"
-  ]
+  ],
+  "not_paid_work": true
 }

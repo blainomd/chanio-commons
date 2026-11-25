@@ -347,7 +347,7 @@ export function commonsProblems(doc, opts = {}) {
    that came back, sees the exact text, and signs it with their member key (starter/members.mjs). Their device runs its
    own filters first (`chanio give` in the starter); this is the commons' own net, the same rules as an entry:
 
-   gift    { v: 1, type: "gift", q, answer, sources: [{ url }], lang, date, key, sig, passion?, grew_from?, card? }
+   gift    { v: 1, type: "gift", q, answer, sources: [{ url }], lang, date, key, sig, not_paid_work: true, passion?, grew_from?, card? }
            signed by key over members.mjs message("gift", …). card, when the giver has one, is their member card.
    review  { v: 1, type: "review", gift, verdict, claim, finding, date, key, sig }
            gift is giftHash(the gift); the reviewer writes the claim as one sentence that stands on its own, and the finding.
@@ -362,6 +362,34 @@ export function commonsProblems(doc, opts = {}) {
    reviewers are given to it, so "nothing accepted" is the empty list, not a broken rule. */
 export const GIFT_KEYS = ["v", "type", "q", "answer", "sources", "lang", "date", "key", "sig"];
 export const GIFT_OPTIONAL = ["passion", "grew_from", "card"];
+/* Not paid work (2026-11-25; step 2a of the build plan in Obsidian Vault/60-Research/2026-11-24-ai-training-work-
+   platforms-vs-chanio-coop.md §4). Checking answers for AI is paid work at many companies, and the checked answer belongs,
+   by contract, to whoever paid for it. So every gift and every proposal carries the giver's own word that it was not made
+   that way: not_paid_work: true. Anything else (missing, false, "yes", 1) is refused, and the commons file never carries
+   it: it is the giver's word about one contribution, read here and left behind. In a gift it sits inside the signed body,
+   so it cannot be added after signing. The full contributor terms and the licence are Blaine's, with counsel (§4 step 1);
+   this is only the factual part those terms will rest on. */
+export const ATTEST_KEYS = ["not_paid_work"];
+export const NOT_PAID_WORK = "not made as paid work for anyone, and not under a promise to keep it confidential";
+/** Every reason a gift's or a proposal's not_paid_work word may not stand. Empty means it is there and true. */
+export function attestProblems(x) {
+  if (!x || typeof x !== "object" || Array.isArray(x)) return [];
+  if (!("not_paid_work" in x)) return [`no not_paid_work: true (the giver's word that it was ${NOT_PAID_WORK})`];
+  if (x.not_paid_work !== true) return ["a not_paid_work that is not true (only true is the giver's word; anything else is refused)"];
+  return [];
+}
+/** A proposal (chanio-commons proposals/<id>.json) is an entry plus the proposer's not_paid_work word. */
+export function proposalEntry(p) {
+  if (!p || typeof p !== "object" || Array.isArray(p)) return p;
+  const e = {};
+  for (const k of Object.keys(p)) if (!ATTEST_KEYS.includes(k)) e[k] = p[k];
+  return e;
+}
+/** Every reason a proposal may not become an entry: its not_paid_work word, then every entry rule. Empty means none. */
+export function proposalProblems(p, opts = {}) {
+  if (!p || typeof p !== "object" || Array.isArray(p)) return ["a proposal that is not an object"];
+  return [...attestProblems(p), ...entryProblems(proposalEntry(p), opts)];
+}
 export const REVIEW_KEYS = ["v", "type", "gift", "verdict", "claim", "finding", "date", "key", "sig"];
 export const GIFT_SOURCE_KEYS = ["url"];
 export const MAX_Q = 280;
@@ -382,8 +410,9 @@ export async function giftHash(g) {
 export function giftProblems(g, opts = {}) {
   if (!g || typeof g !== "object" || Array.isArray(g)) return ["a gift that is not an object"];
   const out = [];
-  for (const k of Object.keys(g)) if (!GIFT_KEYS.includes(k) && !GIFT_OPTIONAL.includes(k)) out.push(`a gift field that is not in v1 (${k})`);
+  for (const k of Object.keys(g)) if (!GIFT_KEYS.includes(k) && !GIFT_OPTIONAL.includes(k) && !ATTEST_KEYS.includes(k)) out.push(`a gift field that is not in v1 (${k})`);
   for (const k of GIFT_KEYS) if (!(k in g)) out.push(`a gift with no ${k}`);
+  for (const p of attestProblems(g)) out.push(p);
   if (g.v !== 1 || g.type !== "gift") out.push("not a version 1 gift");
   if (typeof g.q !== "string" || g.q.trim().length < 12) out.push("no question (12 characters or more)");
   else if (g.q.length > MAX_Q) out.push(`a question over ${MAX_Q} characters`);

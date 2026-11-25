@@ -17,6 +17,7 @@ const good = {
   finding: "The licensing page says all structured data in the main, property, lexeme and entity-schema namespaces is under CC0; text in the other namespaces is under CC BY-SA.",
   words: ["wikidata", "cc0", "license", "structured-data"],
   checked: "2026-11-24",
+  notPaidWork: true,
 };
 const at = (p) => path.join(ROOT, "proposals", `${p.id}.json`);
 
@@ -42,6 +43,16 @@ for (const [what, change] of refused) {
   const p = makeProposal({ ...good, ...change });
   check(proposalProblems(at(p), p).length > 0, `refused: ${what}`, "it stood");
 }
+
+// Not paid work (2026-11-25): with no word, or a word that is not exactly true, a proposal is refused.
+const noWord = makeProposal({ ...good, notPaidWork: false });
+check(!("not_paid_work" in noWord) && proposalProblems(at(noWord), noWord).some((x) => /^no not_paid_work: true/.test(x)), "refused: a proposal without the not_paid_work word");
+for (const v of ["yes", "true", 1, false]) {
+  const p = { ...ex, not_paid_work: v };
+  check(proposalProblems(at(p), p).some((x) => /not_paid_work that is not true/.test(x)), `refused: a not_paid_work of ${JSON.stringify(v)}`);
+}
+const r0 = spawnSync(process.execPath, [path.join(ROOT, "tools", "propose.mjs"), "--claim", good.claim, "--source", `${good.sources[0].url}@2026-11-24`, "--verdict", "CONFIRMED", "--finding", good.finding, "--words", good.words.join(",")], { encoding: "utf8" });
+check(r0.status === 2 && /add --not-paid-work/.test(r0.stderr) && !fs.existsSync(at(ex)), "propose.mjs writes nothing without --not-paid-work", r0.stderr);
 
 // A file not named by its id, and two proposals carrying one id.
 check(proposalProblems(path.join(ROOT, "proposals", "c-000000000000.json"), ex).some((x) => /holds/.test(x)), "refused: a file named for another id");
@@ -83,7 +94,7 @@ if (M && GIVE) {
   const [rootK, giver, r1, r2, r3] = [await mk(), await mk(), await mk(), await mk(), await mk()];
   const roots = [rootK.key];
   const card = M.extendCard(M.rootCard(rootK.key), await M.makeVouch(await M.makeRequest(giver.key, giver.sign, "2026-11-24"), rootK.key, rootK.sign, "2026-11-24"));
-  const b = { v: 1, type: "gift", q: "Which license covers the structured data in Wikidata?", answer: "All structured data in the main, property and lexeme namespaces of Wikidata is under CC0.", sources: [{ url: "https://www.wikidata.org/wiki/Wikidata:Licensing" }], lang: "en", date: "2026-11-24", key: giver.key, passion: { key: "open-data" }, card };
+  const b = { v: 1, type: "gift", q: "Which license covers the structured data in Wikidata?", answer: "All structured data in the main, property and lexeme namespaces of Wikidata is under CC0.", sources: [{ url: "https://www.wikidata.org/wiki/Wikidata:Licensing" }], lang: "en", date: "2026-11-24", key: giver.key, not_paid_work: true, passion: { key: "open-data" }, card };
   const gift = { ...b, sig: await giver.sign(M.message("gift", b)) };
   const CLAIM = "All structured data in Wikidata is available under the Creative Commons CC0 license";
   const review = async (who) => { const x = { v: 1, type: "review", gift: await R.giftHash(gift), verdict: "CONFIRMED", claim: CLAIM, finding: "The licensing page says structured data in the main, property and lexeme namespaces is under CC0.", date: "2026-11-25", key: who.key }; return { ...x, sig: await who.sign(M.message("review", x)) }; };
@@ -98,6 +109,12 @@ if (M && GIVE) {
   check(one.some((x) => /all from one group/.test(x)), "refused: two reviewers from one group", one.join("; "));
   const self = await R.acceptProblems(gift, [await review(giver), await review(r2)], { reviewers: [...REV, { key: giver.key, group: "c" }], roots });
   check(self.some((x) => /cannot review their own gift/.test(x)), "refused: the giver reviewing their own gift", self.join("; "));
+  // Not paid work (2026-11-25): the giver's word sits inside the signed gift; without it, two reviewers cannot accept it.
+  const nb = { ...b }; delete nb.not_paid_work;
+  const noWord = { ...nb, sig: await giver.sign(M.message("gift", nb)) };
+  const rv = async (who) => { const x = { v: 1, type: "review", gift: await R.giftHash(noWord), verdict: "CONFIRMED", claim: CLAIM, finding: "The licensing page says structured data in the main, property and lexeme namespaces is under CC0.", date: "2026-11-25", key: who.key }; return { ...x, sig: await who.sign(M.message("review", x)) }; };
+  const nw = await R.acceptProblems(noWord, [await rv(r1), await rv(r2)], { reviewers: REV, roots });
+  check(nw.some((x) => /^no not_paid_work: true/.test(x)), "refused: a gift without the giver's not_paid_work word, even with two reviewers", nw.join("; "));
 } else check(false, "the gift and review checks ran (NOT CHECKED is never a pass)");
 
 // The published file: published/v1.json is the exact commons file chanio.com serves, the one Blaine approved by its

@@ -17,11 +17,13 @@ You need Node 22 or later and a copy of this repo.
      --source https://example.org/the-page@2026-11-24 \
      --verdict CONFIRMED \
      --finding "What the page says, in your own words." \
-     --words three,match,words
+     --words three,match,words \
+     --not-paid-work
    ```
 
-   It works out the id, writes `proposals/<id>.json`, and lists every reason it may not stand. If it lists any, it writes
-   nothing.
+   `--not-paid-work` is your word that this was not made as paid work for anyone, and not under a promise to keep it
+   confidential. Without it, nothing is written. It works out the id, writes `proposals/<id>.json`, and lists every reason
+   it may not stand. If it lists any, it writes nothing.
 3. **Check the whole repo.** `node tools/check.mjs` must end with "everything stands".
 4. **Open a pull request** from your own account, one proposal per pull request.
 
@@ -38,6 +40,7 @@ with the same tool, and your issue is linked from the pull request.
 | No source, or a source behind a login or with a tracking link | Anyone must be able to read what you read. |
 | A claim that opens on "it", "this" or "the model" | A claim must stand on its own, years later, for a stranger. |
 | A language other than English, for now | The name, health and crisis rules are English word lists; a language is added when its own rules exist. |
+| No `not_paid_work: true`, or anything but `true` | Checked answers made as paid work, or under a promise to keep them confidential, belong by contract to whoever paid. The commons takes only what is yours to give. |
 
 The rules are `rules/check.mjs`. They are a copy of the rules chanio.com runs. To change a rule, propose the change
 in chanio.com's `commons/check.mjs`; a pull request here that edits `rules/` without that sync fails `tools/check.mjs`.

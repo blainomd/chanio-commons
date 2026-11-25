@@ -3,3 +3,5 @@ Copied from blainomd/chanio.com at 553e947 on 2026-11-24 (origin/main):
   starter/members.mjs, starter/common-words.txt -> starter/ (rules/check.mjs reads both at ../starter/)
 SHA256SUMS records all four; node tools/check.mjs --against <a chanio.com checkout> compares the bytes.
 Still the same bytes at e6f9e26 (2026-11-24), where chanio.com published public/commons/v1.json, now published/v1.json here.
+Re-copied from blainomd/chanio.com at 4811eb9 on 2026-11-25 (origin/main): commons/check.mjs, with the not_paid_work word
+on gifts and proposals (attestProblems, proposalProblems, proposalEntry). The other three files are unchanged.
