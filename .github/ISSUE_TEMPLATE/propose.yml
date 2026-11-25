@@ -50,3 +50,7 @@ body:
           required: true
         - label: It names no person and has no health, crisis or price content.
           required: true
+        - label: It was not made as paid work for anyone, and not under a promise to keep it confidential.
+          required: true
+        - label: I give it under CC0 1.0, in my own words, as the contributor terms in CONTRIBUTING.md say.
+          required: true

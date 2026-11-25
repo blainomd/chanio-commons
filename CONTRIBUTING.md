@@ -3,6 +3,20 @@
 There are three ways to help: propose a checked answer, review one, or improve the tools. All three happen in public,
 from your own account.
 
+## Contributor terms
+
+Opening a pull request or an issue here means you agree to these, for what you give:
+
+1. **The same licence in as out.** A proposal (its claim, finding and match words) is given under CC0 1.0: you waive
+   every right in it, so anyone may reuse it for anything. A change to anything else is given under the AGPL-3.0. See
+   the licence section of the [README](README.md#licence).
+2. **It is yours to give.** You wrote it, in your own words. A finding says what a source says; it never copies the
+   source's text. Sources are linked, never copied.
+3. **Not paid work.** It was not made as paid work for anyone, and not under a promise to keep it confidential. That is
+   what `--not-paid-work` (`not_paid_work: true` in the file) says, and the check refuses a proposal without it.
+4. **Credit is a record.** Your account shows on your pull request. Nobody is paid for giving or reviewing, and nobody
+   gets better answers for giving.
+
 ## Propose a checked answer
 
 You need Node 22 or later and a copy of this repo.

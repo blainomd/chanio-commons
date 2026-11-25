@@ -13,7 +13,7 @@ This repo is where anyone can propose a checked answer and read the rules that j
 | Folder | What it holds |
 |---|---|
 | `rules/` | The rules every entry must pass, as code (`check.mjs`), and the shape of the file (`v1.schema.json`). They are a byte-for-byte copy of the rules chanio.com runs; `rules/FROM.txt` says which commit. |
-| `starter/` | Two files the rules read, at the same paths as in chanio.com: `members.mjs` (member keys and signatures) and `common-words.txt` (the 10,000 most common English words, which tell a claim that names its subject from one that does not). Copied with the rules and checked by the same hashes. |
+| `starter/` | Two files the rules read, at the same paths as in chanio.com: `members.mjs` (member keys and signatures) and `common-words.txt` (the 20,000 most common English words, which tell a claim that names its subject from one that does not). Copied with the rules and checked by the same hashes. |
 | `REVIEW.md` | How a gift (one question and its answer, signed by the person who asked) is reviewed, and when it becomes an entry. |
 | `proposals/` | One file per proposed answer, named by its id. Empty until the first proposal is merged. |
 | `published/` | The commons file chanio.com serves (`v1.json`), byte for byte, and its sha256 (`SHA256SUMS`). It changes only when a new file is approved by its exact bytes and published there. |
@@ -47,8 +47,9 @@ Anyone's memory, notes or questions. A name the contributor did not choose to ad
 See [CONTRIBUTING.md](CONTRIBUTING.md). In short: `node tools/propose.mjs …`, then open a pull request from your own
 account. Nothing in this repo sends anything for you.
 
-## Where it stands (2026-11-24)
+## Where it stands (2026-11-25)
 
+- **Open (2026-11-25):** this repo is public, under the licences below. Proposals are welcome by pull request.
 - **Built:** the rules, the check every pull request runs, and the tool that writes a proposal. On a person's Mac, chanio
   already uses the commons file before any bigger AI: a question the file settles stays home, and one that goes out
   carries what is known so far.
@@ -67,8 +68,15 @@ account. Nothing in this repo sends anything for you.
 - **Planned, with no date:** chanio is meant to belong to the people who use it, one person, one vote, and an AI never
   gets a vote. None of that exists yet: no co-op, nothing to join.
 
-## License
+## Licence
 
-Not chosen yet. This repo stays private until it is. The likely answer is an open-source license for the code and the
-CC0 public-domain dedication for entries, so a checked answer can also be given to Wikidata, which takes only CC0.
-`starter/common-words.txt` keeps its own license, CC BY-SA 4.0, and names its sources in its first lines.
+Chosen 2026-11-25:
+
+- **Entries** (`published/`, `proposals/`, `examples/`): CC0 1.0, the public-domain dedication ([LICENSE-CC0](LICENSE-CC0)).
+  Anyone may reuse a checked answer for anything without asking, and it can also be given to Wikidata, which takes only
+  CC0.
+- **Everything else** (the rules, the tools, the docs): the GNU AGPL-3.0 ([LICENSE](LICENSE)). Anyone may run, change and
+  share it; whoever runs a changed copy for other people over a network offers them its source too.
+- **`starter/common-words.txt`** keeps its own licences, CC BY-SA 4.0 and MIT, and names its sources in its first lines.
+
+What you agree to when you give is in [CONTRIBUTING.md](CONTRIBUTING.md#contributor-terms).
